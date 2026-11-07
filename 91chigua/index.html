@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>91吃瓜大赛-大赛热门合集_最新赛事动态与深度解析</title>
+<meta name="description" content="91吃瓜大赛专题聚合页，实时追踪大赛热门合集、最新赛事动态与深度解析。涵盖晋级榜单、选手表现、爆点回顾、社区热议与下期预告，一站掌握吃瓜大赛全部看点，适合收藏与追更。">
+<meta name="keywords" content="91吃瓜大赛,吃瓜大赛合集,吃瓜大赛热门,吃瓜大赛赛程,吃瓜大赛解析">
+<style>
+:root{
+  --ink:#1a1c22;
+  --ink-soft:#3f424c;
+  --paper:#f5f4f0;
+  --card:#ffffff;
+  --line:#e4e1d9;
+  --accent:#d84f2a;
+  --accent-soft:#fbe9e2;
+  --gold:#b8862f;
+  --mint:#2f8f7a;
+  --radius:16px;
+  --shadow:0 4px 18px rgba(30,30,30,.06);
+  --shadow-hover:0 10px 28px rgba(30,30,30,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px;}
+.sec{padding:44px 0;}
+.sec-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px;}
+.sec-h h2{font-size:23px;letter-spacing:.5px;position:relative;padding-left:14px;}
+.sec-h h2::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:4px;background:var(--accent);}
+.sec-h .sub{font-size:13px;color:#8a877e;letter-spacing:.5px;}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:20px;background:var(--accent-soft);color:var(--accent);margin-right:6px;line-height:1.7;}
+.tag.gray{background:#eeece6;color:#6b6a63;}
+.tag.green{background:#e2f2ed;color:var(--mint);}
+.tag.gold{background:#f6eedb;color:var(--gold);}
+.btn{display:inline-block;padding:9px 20px;border-radius:30px;background:var(--accent);color:#fff;font-size:14px;border:none;cursor:pointer;transition:.2s;font-weight:600;}
+.btn:hover{background:#c03e1c;transform:translateY(-1px);}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+.btn.ghost:hover{background:var(--accent-soft);transform:translateY(-1px);}
+
+/* ---------- 导航 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,244,240,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{display:flex;align-items:center;gap:26px;height:62px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;letter-spacing:.5px;white-space:nowrap;}
+.logo .dot{
+  width:26px;height:26px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),#f0a25c);
+  display:grid;place-items:center;color:#fff;font-size:14px;font-weight:900;
+}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft);}
+.nav-links a{padding:6px 11px;border-radius:8px;transition:.2s;}
+.nav-links a:hover{background:#eae7df;color:var(--accent);}
+.topbar .btn{margin-left:auto;padding:7px 16px;font-size:13px;}
+
+/* ---------- Banner ---------- */
+.hero{
+  background:
+    radial-gradient(800px 320px at 85% -10%,rgba(216,79,42,.14),transparent 60%),
+    radial-gradient(600px 300px at 10% 0%,rgba(47,143,122,.10),transparent 65%),
+    linear-gradient(180deg,#fbfaf7,#f5f4f0);
+  border-bottom:1px solid var(--line);
+}
+.hero-in{padding:54px 0 48px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;}
+.hero h1{font-size:38px;line-height:1.3;letter-spacing:.5px;margin-bottom:14px;font-weight:800;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero p.lead{font-size:15px;color:#5c5a52;max-width:560px;margin-bottom:22px;}
+.searchbar{display:flex;max-width:480px;background:#fff;border:1px solid var(--line);border-radius:32px;padding:5px 5px 5px 20px;box-shadow:var(--shadow);}
+.searchbar input{flex:1;border:none;outline:none;font-size:14px;background:transparent;color:var(--ink);}
+.searchbar button{border:none;background:var(--accent);color:#fff;border-radius:26px;padding:8px 20px;font-size:14px;cursor:pointer;font-weight:600;}
+.hero-btns{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
+.hero-btns a{font-size:13px;padding:7px 15px;border-radius:24px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);transition:.2s;}
+.hero-btns a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+.hero-side{display:grid;gap:14px;}
+.hero-card{background:var(--card);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);border:1px solid var(--line);}
+.hero-card .num{font-size:28px;font-weight:800;color:var(--accent);line-height:1.2;}
+.hero-card .lb{font-size:13px;color:#8a877e;}
+.hero-side .hero-card:nth-child(2) .num{color:var(--mint);}
+.hero-side .hero-card:nth-child(3) .num{color:var(--gold);}
+
+/* ---------- 通用卡片 ---------- */
+.grid{display:grid;gap:18px;}
+.grid.c4{grid-template-columns:repeat(4,1fr);}
+.grid.c3{grid-template-columns:repeat(3,1fr);}
+.grid.c2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);transition:.22s;overflow:hidden;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:#dcd8cf;}
+.card .cover{
+  height:96px;display:flex;align-items:flex-end;padding:12px 16px;
+  color:#fff;font-weight:700;font-size:16px;letter-spacing:.5px;
+  background:linear-gradient(120deg,#3a3d46,#5a5e6b);
+}
+.card .cover.c1{background:linear-gradient(120deg,#d84f2a,#f0a25c);}
+.card .cover.c2{background:linear-gradient(120deg,#2f8f7a,#8fd0bf);}
+.card .cover.c3{background:linear-gradient(120deg,#b8862f,#e3c47f);}
+.card .cover.c4{background:linear-gradient(120deg,#4a4f7a,#8e93c9);}
+.card .cover.c5{background:linear-gradient(120deg,#8a3d5a,#d68ba5);}
+.card .cover.c6{background:linear-gradient(120deg,#2b6a8f,#7fb8d6);}
+.card .body{padding:14px 16px 16px;}
+.card .body h3{font-size:15.5px;margin-bottom:8px;line-height:1.5;font-weight:700;}
+.card .body .desc{font-size:13px;color:#6b6a63;margin-bottom:10px;line-height:1.65;}
+.card .meta{font-size:12px;color:#9a978e;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;}
+
+/* ---------- 列表型 ---------- */
+.list-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--line);}
+.list-row:last-child{border-bottom:none;}
+.list-row .idx{font-size:15px;font-weight:800;color:var(--accent);width:26px;flex:none;padding-top:2px;}
+.list-row .idx.gray{color:#b9b5aa;}
+.list-row .info{flex:1;min-width:0;}
+.list-row .info h4{font-size:14.5px;margin-bottom:4px;font-weight:700;}
+.list-row .info p{font-size:13px;color:#7b786f;line-height:1.6;}
+.list-row .time{font-size:12px;color:#a9a69c;flex:none;padding-top:3px;}
+
+/* ---------- 分类入口 ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.cat-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;transition:.2s;box-shadow:var(--shadow);}
+.cat-item:hover{transform:translateY(-3px);border-color:var(--accent);}
+.cat-item .ic{font-size:20px;margin-bottom:6px;}
+.cat-item h4{font-size:14.5px;margin-bottom:4px;}
+.cat-item p{font-size:12.5px;color:#8a877e;line-height:1.55;}
+
+/* ---------- 正文解析 ---------- */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 34px;box-shadow:var(--shadow);}
+.prose h2{font-size:22px;margin-bottom:16px;padding-left:14px;position:relative;}
+.prose h2::before{content:"";position:absolute;left:0;top:7px;bottom:7px;width:4px;border-radius:4px;background:var(--accent);}
+.prose h3{font-size:17px;margin:22px 0 10px;}
+.prose p{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px;text-align:justify;}
+.prose .hl{background:linear-gradient(180deg,transparent 62%,#fbe1d6 62%);font-weight:600;color:var(--ink);}
+.prose blockquote{border-left:3px solid var(--accent);background:#fbf7f3;padding:12px 18px;border-radius:0 10px 10px 0;font-size:14px;color:#6b6a63;margin:16px 0;}
+
+/* ---------- 体验指南 ---------- */
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.guide-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);}
+.guide-card .g-ic{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;margin-bottom:10px;}
+.guide-card h4{font-size:15px;margin-bottom:6px;}
+.guide-card p{font-size:13px;color:#7b786f;line-height:1.65;}
+
+/* ---------- FAQ 手风琴 ---------- */
+.faq-list{display:grid;gap:10px;}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:15px 20px;font-weight:700;font-size:14.5px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";font-size:18px;color:var(--accent);font-weight:400;transition:.2s;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item .ans{padding:0 20px 16px;font-size:13.5px;color:#6b6a63;line-height:1.75;border-top:1px dashed var(--line);padding-top:12px;}
+
+/* ---------- 评论 ---------- */
+.cmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.cmt{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);font-size:13.5px;color:var(--ink-soft);}
+.cmt .cmt-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.cmt .who{font-weight:700;color:var(--ink);font-size:13px;}
+.cmt .when{font-size:11.5px;color:#a9a69c;}
+.cmt p{line-height:1.65;}
+
+/* ---------- 资讯 ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.news{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);transition:.2s;}
+.news:hover{transform:translateY(-3px);}
+.news .nd{font-size:12px;color:var(--accent);font-weight:700;margin-bottom:5px;}
+.news h4{font-size:14.5px;margin-bottom:6px;line-height:1.55;}
+.news p{font-size:13px;color:#7b786f;line-height:1.6;}
+
+/* ---------- 页脚 ---------- */
+footer{background:#20222a;color:#b7b9c2;margin-top:20px;padding:38px 0 26px;font-size:13px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:24px;}
+.foot-grid h5{color:#fff;font-size:14px;margin-bottom:10px;letter-spacing:.5px;}
+.foot-grid p{line-height:1.8;color:#8e909a;}
+.foot-grid a{color:#b7b9c2;display:block;padding:3px 0;transition:.2s;}
+.foot-grid a:hover{color:var(--accent);}
+.foot-bottom{border-top:1px solid #33363f;padding-top:16px;font-size:12px;color:#7a7d87;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:960px){
+  .hero-in{grid-template-columns:1fr;}
+  .grid.c4{grid-template-columns:repeat(2,1fr);}
+  .grid.c3{grid-template-columns:repeat(2,1fr);}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .guide-grid{grid-template-columns:repeat(2,1fr);}
+  .cmt-grid{grid-template-columns:repeat(2,1fr);}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .hero h1{font-size:27px;}
+  .grid.c4,.grid.c3,.grid.c2{grid-template-columns:1fr;}
+  .news-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .guide-grid{grid-template-columns:1fr;}
+  .cmt-grid{grid-template-columns:1fr;}
+  .prose{padding:22px 18px;}
+  .nav-links{display:none;}
+  .topbar-in{justify-content:space-between;}
+  .topbar .btn{margin-left:0;}
+  .sec{padding:30px 0;}
+  .foot-grid{grid-template-columns:1fr;}
+  .hero-side{grid-template-columns:repeat(3,1fr);}
+  .hero-card{padding:12px;}
+  .hero-card .num{font-size:20px;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ================= 顶部导航 ================= -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a href="/#hero" class="logo"><span class="dot">吃</span>91吃瓜大赛</a>
+    <nav class="nav-links">
+      <a href="/#hot">热门推荐</a>
+      <a href="/#latest">最新动态</a>
+      <a href="/#cats">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+    <a href="/#subscribe" class="btn">订阅追更</a>
+  </div>
+</header>
+
+<!-- ================= 首屏 Banner ================= -->
+<section class="hero" id="hero">
+  <div class="wrap hero-in">
+    <div>
+      <h1>91吃瓜大赛 · <em>热门合集与赛事动态</em>一站追踪</h1>
+      <p class="lead">汇聚91吃瓜大赛每期高光名场面、晋级榜单与社区热议话题。从赛程节奏到选手表现，从爆点回顾到下期预告，用编辑视角帮你快速锁定值得反复回看的吃瓜大赛内容。</p>
+      <div class="searchbar">
+        <input type="text" placeholder="搜索吃瓜大赛选手 / 名场面 / 期数…" aria-label="搜索吃瓜大赛内容">
+        <button type="button">搜索</button>
+      </div>
+      <div class="hero-btns">
+        <a href="/#hot">本期热门榜</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#cats">分类导航</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#faq">新手答疑</a>
+        <a href="/#comments">吃瓜讨论</a>
+        <a href="/#news">赛事资讯</a>
+        <a href="/#subscribe">订阅提醒</a>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <div class="hero-card"><div class="num">128+</div><div class="lb">累计收录吃瓜大赛片段</div></div>
+      <div class="hero-card"><div class="num">24期</div><div class="lb">已更新赛事专题期数</div></div>
+      <div class="hero-card"><div class="num">9.2</div><div class="lb">社区综合口碑评分</div></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 内容简介 ================= -->
+<section class="sec" id="intro">
+  <div class="wrap">
+    <div class="sec-h"><h2>91吃瓜大赛内容简介</h2><span class="sub">先看这里，再决定从哪一期入坑</span></div>
+    <div class="prose">
+      <p>91吃瓜大赛是一档以“围观、点评、整活”为核心的赛事型内容专题，围绕每期热门事件、选手表现和社区投票展开。它既不是严肃的竞技比赛，也不是单纯的娱乐剪辑，而是把网络讨论中最具传播力的片段集中呈现，让观众在短时间内获得高密度的信息与情绪反馈。<span class="hl">91吃瓜大赛</span>的核心吸引力在于节奏快、话题密、参与感强，每一期都能延伸出新的讨论点。</p>
+      <p>这个页面适合三类人：第一类是刚听说91吃瓜大赛、想快速了解赛制和看点的路人观众；第二类是已经追了几期、想系统回顾名场面和晋级脉络的老观众；第三类是想找素材、做二创或写评论的内容爱好者。页面把热门推荐、最新动态、分类入口、深度解析、FAQ、用户评论和资讯流整合在一起，形成从“知道”到“看懂”再到“参与”的浏览路径。</p>
+      <p>值得收藏的原因是：91吃瓜大赛的讨论热度往往集中在更新后的48小时内，信息更新快、片段分散。这个专题页会持续整理每期的高光时刻、选手口碑和社区争议点，方便你随时回来对照时间线，也方便把某一期的完整脉络一次性补齐。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 热门内容推荐 ================= -->
+<section class="sec" id="hot">
+  <div class="wrap">
+    <div class="sec-h"><h2>本期热门内容推荐</h2><span class="sub">编辑根据讨论度与回看率整理</span></div>
+    <div class="grid c4">
+      <article class="card"><div class="cover c1">高光名场面</div><div class="body"><h3>第24期·反转投票夜</h3><p class="desc">原本领先的选手在最后一轮被集体反超，弹幕瞬间刷屏，是91吃瓜大赛近期讨论度最高的一期。</p><div class="meta"><span><span class="tag">大赛热点</span><span class="tag gold">反转</span></span><span>热度 98</span></div></div></article>
+      <article class="card"><div class="cover c2">选手观察</div><div class="body"><h3>“冷面吐槽王”出圈记</h3><p class="desc">话不多但每句都踩在点上，这位选手靠稳定输出拿下连续三期人气第一，评论区已经开始押冠军。</p><div class="meta"><span><span class="tag green">选手</span><span class="tag gray">人气</span></span><span>热度 94</span></div></div></article>
+      <article class="card"><div class="cover c3">赛制解析</div><div class="body"><h3>三轮晋级制到底怎么算</h3><p class="desc">从海选到淘汰再到复活，91吃瓜大赛的晋级规则比看起来复杂，这篇用一张图讲清楚每轮权重。</p><div class="meta"><span><span class="tag">赛制</span><span class="tag gray">入门</span></span><span>收藏 1.2k</span></div></div></article>
+      <article class="card"><div class="cover c4">二创精选</div><div class="body"><h3>网友剪的“吃瓜编年史”</h3><p class="desc">把24期名场面按时间线重新剪成8分钟，节奏干净，适合新观众快速补课前情。</p><div class="meta"><span><span class="tag">二创</span><span class="tag gray">补课</span></span><span>热度 89</span></div></div></article>
+      <article class="card"><div class="cover c5">争议复盘</div><div class="body"><h3>第21期评分风波始末</h3><p class="desc">评委打分被质疑双标，节目组随后公布细则。这一期是理解91吃瓜大赛规则演化的关键节点。</p><div class="meta"><span><span class="tag">争议</span><span class="tag gold">复盘</span></span><span>讨论 2.3k</span></div></div></article>
+      <article class="card"><div class="cover c6">下期前瞻</div><div class="body"><h3>复活赛名单提前看</h3><p class="desc">根据社区投票与节目组预告，复活赛大概率出现两位老面孔，具体的对阵组合仍有变数。</p><div class="meta"><span><span class="tag">预告</span><span class="tag green">投票</span></span><span>期待 1.6k</span></div></div></article>
+      <article class="card"><div class="cover c2">社区投票</div><div class="body"><h3>你心中的MVP是谁</h3><p class="desc">本轮投票开放24小时，结果将影响下一期的镜头分配，参与人数已突破五万。</p><div class="meta"><span><span class="tag green">互动</span><span class="tag gray">投票</span></span><span>参与 5.1w</span></div></div></article>
+      <article class="card"><div class="cover c1">新人向导</div><div class="body"><h3>从哪一期开始看最合适</h3><p class="desc">不建议从第一期硬啃，编辑推荐从第18期切入，赛制成熟、名场面集中，更容易入坑。</p><div class="meta"><span><span class="tag">入门</span><span class="tag gold">推荐</span></span><span>收藏 860</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 最新更新 ================= -->
+<section class="sec" id="latest" style="background:#efede7;">
+  <div class="wrap">
+    <div class="sec-h"><h2>最新更新与热播动态</h2><span class="sub">截至2026年11月7日</span></div>
+    <div class="grid c2" style="align-items:start;">
+      <div class="card" style="padding:6px 20px;">
+        <div class="list-row"><span class="idx">01</span><div class="info"><h4>第24期正片已上线</h4><p>反转投票夜完整版放出，新增选手后台反应镜头，评论区讨论集中在最后十分钟。</p></div><span class="time">11-07</span></div>
+        <div class="list-row"><span class="idx">02</span><div class="info"><h4>复活赛投票通道开启</h4><p>本轮投票持续72小时，票数最高的两位选手将直接进入下一轮，投票需绑定社区账号。</p></div><span class="time">11-06</span></div>
+        <div class="list-row"><span class="idx">03</span><div class="info"><h4>“冷面吐槽王”专访更新</h4><p>节目组放出15分钟幕后访谈，聊到对91吃瓜大赛赛制的看法，信息量不小。</p></div><span class="time">11-06</span></div>
+        <div class="list-row"><span class="idx">04</span><div class="info"><h4>第23期评分细则修订</h4><p>评委权重由3:2:1调整为4:3:2，官方称是为了减少单轮波动，社区反应两极。</p></div><span class="time">11-05</span></div>
+        <div class="list-row"><span class="idx">05</span><div class="info"><h4>二创征集活动结果公布</h4><p>共收到430条投稿，前十名作品将获得专题页推荐位，吃瓜大赛二创生态比预想活跃。</p></div><span class="time">11-04</span></div>
+        <div class="list-row"><span class="idx">06</span><div class="info"><h4>下一期主题线索放出</h4><p>官方预告图出现“城市夜景”元素，社区猜测与线下联动有关，具体形式尚未确认。</p></div><span class="time">11-03</span></div>
+      </div>
+      <div class="card" style="padding:6px 20px;">
+        <div class="list-row"><span class="idx gray">07</span><div class="info"><h4>经典片段重新上架</h4><p>第12期“沉默三分钟”片段恢复播放，此前因版权问题短暂下架，老观众表示终于补完。</p></div><span class="time">11-02</span></div>
+        <div class="list-row"><span class="idx gray">08</span><div class="info"><h4>社区话题榜更新</h4><p>“谁才是真正的气氛担当”登上榜首，相关讨论已延伸出多篇长评，争议不小。</p></div><span class="time">11-01</span></div>
+        <div class="list-row"><span class="idx gray">09</span><div class="info"><h4>赛制答疑直播预告</h4><p>节目组将在本周日晚做一次规则答疑，重点解释复活赛的票数折算方式。</p></div><span class="time">10-31</span></div>
+        <div class="list-row"><span class="idx gray">10</span><div class="info"><h4>选手阵容微调</h4><p>一位原定参赛选手因档期退出，由上一期人气选手补位，阵容变动引发新一轮猜测。</p></div><span class="time">10-30</span></div>
+        <div class="list-row"><span class="idx gray">11</span><div class="info"><h4>往期合辑打包上线</h4><p>1至12期按主题重新分组，新增编辑注释，适合想系统回顾91吃瓜大赛脉络的观众。</p></div><span class="time">10-28</span></div>
+        <div class="list-row"><span class="idx gray">12</span><div class="info"><h4>评论区互动规则更新</h4><p>新增“观点标签”功能，讨论时可以选择立场标签，减少无意义对线。</p></div><span class="time">10-26</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 分类入口 ================= -->
+<section class="sec" id="cats">
+  <div class="wrap">
+    <div class="sec-h"><h2>分类入口</h2><span class="sub">按你关心的话题快速跳转</span></div>
+    <div class="cat-grid">
+      <a class="cat-item" href="/#hot"><div class="ic">🔥</div><h4>热门名场面</h4><p>反转、整活、爆点片段集中收录，适合先看高光再补全片。</p></a>
+      <a class="cat-item" href="/#deep"><div class="ic">🎯</div><h4>赛制与规则</h4><p>晋级逻辑、投票权重、复活机制，一篇看懂91吃瓜大赛怎么玩。</p></a>
+      <a class="cat-item" href="/#comments"><div class="ic">💬</div><h4>社区讨论</h4><p>选手口碑、争议复盘、观众态度，评论区比正片还热闹。</p></a>
+      <a class="cat-item" href="/#latest"><div class="ic">📅</div><h4>更新日历</h4><p>正片、花絮、直播答疑的时间线整理，不错过关键节点。</p></a>
+      <a class="cat-item" href="/#hot"><div class="ic">🏆</div><h4>选手榜单</h4><p>人气、稳定度、名场面数量多维度观察，不代表官方排名。</p></a>
+      <a class="cat-item" href="/#news"><div class="ic">📰</div><h4>赛事资讯</h4><p>阵容变动、规则修订、二创活动，外围动态一网打尽。</p></a>
+      <a class="cat-item" href="/#intro"><div class="ic">🧭</div><h4>新人向导</h4><p>从哪期入坑、先看什么、术语怎么理解，降低补课门槛。</p></a>
+      <a class="cat-item" href="/#faq"><div class="ic">❓</div><h4>常见疑问</h4><p>关于赛制、观看顺序、投票方式的集中答疑。</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 深度解析 ================= -->
+<section class="sec" id="deep" style="background:#efede7;">
+  <div class="wrap">
+    <div class="sec-h"><h2>深度解析：91吃瓜大赛为什么值得追</h2><span class="sub">编辑视角的类型观察</span></div>
+    <div class="prose">
+      <h2>从“围观”到“参与”的内容设计</h2>
+      <p>91吃瓜大赛最容易被误解成单纯的搞笑合集，但真正让它形成追更习惯的，是它把“围观”和“参与”绑在了一起。每期内容不是单向播放，而是通过投票、弹幕标签、社区话题把观众拉进叙事。你会看到选手在上一期被吐槽的点，下一期就被节目组做成环节，这种即时反馈让91吃瓜大赛的讨论热度能够持续发酵，而不是播完就散。</p>
+      <p>从题材上看，它介于综艺和社区活动之间。赛制提供了框架，但真正的内容由选手临场反应和观众互动共同填充。这种结构决定了它不适合按传统综艺的“剧本完成度”去评价，更适合看节奏、看反应、看社区如何二次解读。理解这一点，就能明白为什么同一期内容在不同观众眼里评价差异很大。</p>
+      <h3>选手表现：稳定输出比单次爆点更值钱</h3>
+      <p>复盘已更新的二十多期可以发现，人气靠前的选手往往不是单场最炸的那个，而是能在多期里保持稳定表达的人。91吃瓜大赛的赛制对“持续输出”有明显倾斜，单轮高光可以带来短期热度，但跨轮次的口碑累积更影响最终走向。这也是为什么“冷面吐槽王”这类选手能后来居上——他的表达密度高，且很少出现无效发言。</p>
+      <blockquote>编辑提示：如果你只想看名场面，可以从每期的“高光切片”入手；如果想看懂选手策略，建议按时间线连看三到四期，感受口碑变化。</blockquote>
+      <h3>节奏与观看体验</h3>
+      <p>单期正片控制在40分钟上下，信息密度偏高，前15分钟铺垫、中段集中冲突、后段投票与复盘。对移动端观众来说，这种结构比较友好，通勤时间可以看完一期。但要注意的是，部分期数的剪辑节奏偏快，新观众容易跟不上人物关系，建议先看新人向导再切入正片。91吃瓜大赛在这一点上做得比较聪明，官方和社区都提供了补课材料，降低了入坑成本。</p>
+      <h3>同类内容比较与搜索意图</h3>
+      <p>和常见的社区盘点类内容相比，91吃瓜大赛的优势在于有固定赛制和连续叙事，不是一次性消费。搜索这个词的用户，通常想了解三件事：这到底是什么、哪几期最值得看、现在追还来不来得及。这个页面正是围绕这三个问题组织内容，把推荐、解析和动态放在同一条浏览路径上，减少来回跳转的成本。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 体验指南 ================= -->
+<section class="sec" id="guide">
+  <div class="wrap">
+    <div class="sec-h"><h2>浏览体验指南</h2><span class="sub">怎么用这个专题页更顺手</span></div>
+    <div class="guide-grid">
+      <div class="guide-card"><div class="g-ic">1</div><h4>先看热门再看全片</h4><p>如果你时间有限，从热门推荐里的名场面切入，再决定要不要补完整期，效率更高。</p></div>
+      <div class="guide-card"><div class="g-ic">2</div><h4>善用分类入口</h4><p>赛制、选手、争议、二创分开整理，想查什么直接跳转，不用在长页面里反复滚动。</p></div>
+      <div class="guide-card"><div class="g-ic">3</div><h4>移动端阅读友好</h4><p>卡片和列表在手机上自动单列显示，通勤路上也能顺畅浏览，不用放大缩小。</p></div>
+      <div class="guide-card"><div class="g-ic">4</div><h4>收藏更新节点</h4><p>最新动态按日期排列，更新后48小时内回来看，基本能跟上社区讨论节奏。</p></div>
+      <div class="guide-card"><div class="g-ic">5</div><h4>评论区别只看热闹</h4><p>用户评论里常有对赛制的细致分析，比正片里的一笔带过更有信息量。</p></div>
+      <div class="guide-card"><div class="g-ic">6</div><h4>相关推荐扩展路径</h4><p>每张卡片都能继续往下点，顺着看容易发现之前忽略的期数或选手线索。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" id="faq" style="background:#efede7;">
+  <div class="wrap">
+    <div class="sec-h"><h2>常见问题</h2><span class="sub">关于91吃瓜大赛的高频疑问</span></div>
+    <div class="faq-list">
+      <details class="faq-item" open><summary>91吃瓜大赛到底是什么类型的节目？</summary><div class="ans">它更接近“赛事型社区内容”，有固定赛制、多轮晋级和观众投票，但不是传统竞技比赛。内容以选手临场表现、社区点评和名场面切片为主，节奏偏快，适合喜欢看讨论和参与投票的观众。</div></details>
+      <details class="faq-item"><summary>从哪一期开始看比较不容易劝退？</summary><div class="ans">多数观众反馈从第18期切入比较合适，赛制已经稳定，选手特点清晰，名场面也集中。如果对早期风格好奇，可以回头看第12期的经典片段，但不建议从第一期硬啃，人物关系会比较陌生。</div></details>
+      <details class="faq-item"><summary>91吃瓜大赛的晋级规则复杂吗？</summary><div class="ans">规则本身不复杂，但权重计算容易让人困惑。简单说分三轮：海选看基础表现，淘汰轮看现场投票，复活轮看社区票数折算。官方在第23期后调整了评委权重，具体细则建议看深度解析里的赛制部分。</div></details>
+      <details class="faq-item"><summary>现在开始追还来得及吗？</summary><div class="ans">完全来得及。91吃瓜大赛每期相对独立，虽然有连续叙事，但单期信息完整。建议先看本期热门推荐里的三张卡片，再补一期完整正片，基本就能跟上社区讨论，不需要从头补二十多期。</div></details>
+      <details class="faq-item"><summary>投票会影响节目走向吗？</summary><div class="ans">会，但影响程度分阶段。复活赛的社区票数直接决定谁能回到赛场，常规轮的投票更多影响镜头分配和环节设计。如果你在意结果，关注官方公布的投票窗口，一般在更新后48小时内。</div></details>
+      <details class="faq-item"><summary>有没有类似91吃瓜大赛的内容可以看？</summary><div class="ans">如果你喜欢这种赛制加社区互动的形式，可以留意同类赛事型专题和社区盘点内容。区别在于91吃瓜大赛的连续性和选手个人线更完整，适合愿意花时间跟进的观众，而不是一次性刷完就走的类型。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 用户评论 ================= -->
+<section class="sec" id="comments">
+  <div class="wrap">
+    <div class="sec-h"><h2>用户评论</h2><span class="sub">来自社区的真实讨论氛围</span></div>
+    <div class="cmt-grid">
+      <div class="cmt"><div class="cmt-h"><span class="who">瓜田里的猹</span><span class="when">11-07</span></div><p>第24期最后十分钟确实没想到，本来都准备关页面了，结果直接反转。91吃瓜大赛还是得看现场投票环节。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">晚风慢慢</span><span class="when">11-07</span></div><p>冷面吐槽王能起来不是没道理，话少但每句都在点上，比那种一直抢话的选手观感好太多了。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">不熬夜协会</span><span class="when">11-06</span></div><p>赛制解析那篇写得挺清楚，之前一直没搞懂复活赛票数怎么折算，看完总算明白了。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">橘子汽水</span><span class="when">11-06</span></div><p>客观说剪辑节奏有点快，新观众可能跟不上人物关系，建议节目组加一点前情提示。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">看热闹不嫌事大</span><span class="when">11-05</span></div><p>第21期评分风波其实就是规则没写清楚，后面改了细则之后争议少多了，算是一个进步吧。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">理性吃瓜选手</span><span class="when">11-05</span></div><p>二创征集前十名里有两三个剪得比正片还利索，91吃瓜大赛的社区确实有东西。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">一只小话筒</span><span class="when">11-04</span></div><p>下期预告图那个城市夜景，我猜是线下联动，但如果只是换布景就有点失望了。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">周末补课中</span><span class="when">11-04</span></div><p>按新人向导从第18期看的，确实顺很多，谢谢编辑，不然我可能第一期就弃了。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">话不多先生</span><span class="when">11-03</span></div><p>这期镜头分配有点失衡，有两个选手几乎没怎么说话，希望后面能调整一下。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">瓜友007</span><span class="when">11-03</span></div><p>投票通道开得有点突然，差点错过，建议官方提前一天预告更新时间。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">半糖去冰</span><span class="when">11-02</span></div><p>第12期那三分钟沉默片段终于恢复了，当时没看到，补完确实理解为什么被反复提。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">路人转粉</span><span class="when">11-01</span></div><p>本来只是搜一下91吃瓜大赛是什么，结果在这个页面看了快一个小时，分类做得挺方便。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">键盘观察员</span><span class="when">10-31</span></div><p>评论区观点标签这个改动不错，至少能看出对面是认真讨论还是在纯对线。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">慢热型观众</span><span class="when">10-30</span></div><p>整体不错，但有些期数的花絮比正片好看，希望花絮也能单独整理个入口。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">奶茶三分糖</span><span class="when">10-29</span></div><p>选手阵容微调之后补位那位压力应该挺大，上一期人气那么高，这期表现稍微平一点就会被说。</p></div>
+      <div class="cmt"><div class="cmt-h"><span class="who">夜猫子本猫</span><span class="when">10-28</span></div><p>往期合辑打包这个操作好评，按主题分组之后看起来舒服多了，适合我这种想系统补的人。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 相关资讯 ================= -->
+<section class="sec" id="news" style="background:#efede7;">
+  <div class="wrap">
+    <div class="sec-h"><h2>相关资讯</h2><span class="sub">赛事外围动态与看点补充</span></div>
+    <div class="news-grid">
+      <article class="news"><div class="nd">11-07</div><h4>复活赛投票首日数据出炉，参与人数超预期</h4><p>官方披露首日投票量较上一轮增长约四成，社区讨论集中在两位老面孔的票数差距上。</p></article>
+      <article class="news"><div class="nd">11-06</div><h4>节目组回应剪辑节奏争议：后续会增加前情提示</h4><p>针对新观众反馈人物关系难跟上的问题，制作方表示会在下期正片开头加入简要回顾。</p></article>
+      <article class="news"><div class="nd">11-05</div><h4>91吃瓜大赛二创生态观察：从切片到长评</h4><p>除了短视频切片，社区里出现了不少长文分析，讨论赛制与选手策略，内容深度超出预期。</p></article>
+      <article class="news"><div class="nd">11-04</div><h4>评委权重调整后首期效果评估</h4><p>新的4:3:2权重在最近一期投入使用，单轮波动确实有所降低，但选手策略也随之变化。</p></article>
+      <article class="news"><div class="nd">11-02</div><h4>经典片段恢复播放，老观众集中补课</h4><p>第12期片段重新上架后，相关讨论量明显回升，不少观众表示是理解节目风格的关键一期。</p></article>
+      <article class="news"><div class="nd">10-30</div><h4>下期主题线索引猜测，官方暂未确认</h4><p>预告图中的城市夜景元素被解读为线下联动信号，节目组仅表示“会有新尝试”。</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 订阅引导 ================= -->
+<section class="sec" id="subscribe">
+  <div class="wrap">
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:26px 30px;">
+      <div>
+        <h3 style="font-size:19px;margin-bottom:6px;">订阅91吃瓜大赛更新提醒</h3>
+        <p style="font-size:13.5px;color:#7b786f;">新一期上线、投票开启、规则调整，第一时间在专题页同步。收藏本页即可随时回来查看。</p>
+      </div>
+      <a href="/#hot" class="btn">回到热门推荐</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 页脚 ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>关于91吃瓜大赛专题页</h5>
+        <p>本页面为内容聚合与讨论参考，整理91吃瓜大赛的赛事动态、热门片段、赛制解析与社区讨论。所有内容以信息整理和浏览指引为目的，不代表官方立场，具体规则以节目组公布为准。</p>
+      </div>
+      <div>
+        <h5>栏目导航</h5>
+        <a href="/#hot">热门推荐</a>
+        <a href="/#latest">最新动态</a>
+        <a href="/#cats">分类入口</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#faq">常见问题</a>
+      </div>
+      <div>
+        <h5>友情链接</h5>
+        <a href="/#comments">社区讨论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#subscribe">订阅提醒</a>
+        <a href="/#intro">内容简介</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 91吃瓜大赛内容专题 · 信息整理与浏览参考</span>
+      <span>免责声明：本页为静态内容聚合页面，相关名称与数据仅用于页面展示。</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+                                                                         </html>
