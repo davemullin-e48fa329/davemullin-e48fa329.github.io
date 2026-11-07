@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>51每日大赛官网首页-每日赛程赛果_热门作品榜单_参赛指南</title>
+  <meta name="description" content="51每日大赛官网首页汇集每日赛程、实时赛果与热门作品榜单，提供参赛指南、投票互动和社区讨论。每日更新，追踪大赛动态，发现优秀选手与作品，一站掌握51每日大赛全部信息。">
+  <meta name="keywords" content="51每日大赛,每日大赛官网,51每日大赛首页,每日赛程,热门作品榜单">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='%23fbbf24' text-anchor='middle'%3E51%3C/text%3E%3C/svg%3E">
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+  <style>
+    :root{
+      --bg:#0b1120;
+      --bg-soft:#111827;
+      --card:#1e293b;
+      --card-hover:#26344b;
+      --border:rgba(255,255,255,0.08);
+      --text:#e2e8f0;
+      --text-soft:#94a3b8;
+      --accent:#fbbf24;
+      --accent-deep:#f59e0b;
+      --accent-soft:rgba(251,191,36,0.12);
+      --blue:#38bdf8;
+      --radius-lg:18px;
+      --radius-md:12px;
+      --shadow:0 8px 24px rgba(0,0,0,0.35);
+      --max:1200px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      font-size:15px;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none;}
+    ul{list-style:none;}
+    img{max-width:100%;display:block;}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px;}
+    section{scroll-margin-top:80px;}
+    h2{
+      font-size:22px;
+      font-weight:700;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      letter-spacing:0.5px;
+    }
+    h2::before{
+      content:"";
+      width:5px;height:22px;border-radius:3px;
+      background:linear-gradient(180deg,var(--accent),var(--accent-deep));
+    }
+    .sec-sub{color:var(--text-soft);font-size:13px;margin-left:auto;font-weight:400;}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius-md);
+      transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow);
+      background:var(--card-hover);
+    }
+    .tag{
+      display:inline-block;
+      font-size:11px;
+      padding:2px 9px;
+      border-radius:20px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      margin-right:6px;
+      margin-bottom:6px;
+      white-space:nowrap;
+    }
+    .tag.blue{background:rgba(56,189,248,0.12);color:var(--blue);}
+    .tag.gray{background:rgba(148,163,184,0.12);color:var(--text-soft);}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-deep));
+      color:#0b1120;font-weight:700;font-size:14px;
+      padding:10px 22px;border-radius:30px;border:none;cursor:pointer;
+      transition:opacity .2s, transform .2s;
+    }
+    .btn:hover{opacity:.88;transform:translateY(-1px);}
+    .btn.ghost{
+      background:transparent;border:1px solid var(--border);color:var(--text);
+    }
+    .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* nav */
+    .nav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(11,17,32,0.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:0 20px;
+      display:flex;align-items:center;gap:28px;height:64px;flex-wrap:wrap;
+    }
+    .logo{
+      display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:0.5px;
+      flex-shrink:0;
+    }
+    .logo-mark{
+      width:34px;height:34px;border-radius:9px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-deep));
+      color:#0b1120;display:flex;align-items:center;justify-content:center;
+      font-size:15px;font-weight:900;
+    }
+    .nav-links{display:flex;gap:22px;font-size:14px;color:var(--text-soft);flex-wrap:wrap;}
+    .nav-links a{transition:color .2s;white-space:nowrap;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-search{
+      margin-left:auto;display:flex;align-items:center;
+      background:var(--bg-soft);border:1px solid var(--border);
+      border-radius:30px;padding:5px 6px 5px 16px;min-width:200px;
+    }
+    .nav-search input{
+      background:transparent;border:none;outline:none;color:var(--text);
+      font-size:13px;width:130px;
+    }
+    .nav-search input::placeholder{color:#64748b;}
+    .nav-search button{
+      background:var(--accent-soft);border:none;color:var(--accent);
+      border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;cursor:pointer;
+    }
+
+    /* banner */
+    .banner{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(251,191,36,0.14), transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(56,189,248,0.10), transparent 50%),
+        linear-gradient(160deg,#0e1626 0%,#111c30 100%);
+      border-bottom:1px solid var(--border);
+    }
+    .banner::after{
+      content:"";position:absolute;inset:0;
+      background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+      background-size:48px 48px;
+      pointer-events:none;
+    }
+    .banner-inner{
+      position:relative;z-index:2;
+      max-width:var(--max);margin:0 auto;padding:60px 20px 52px;
+    }
+    .banner-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--accent-soft);border:1px solid rgba(251,191,36,0.3);
+      color:var(--accent);font-size:12px;font-weight:600;
+      padding:5px 14px;border-radius:30px;margin-bottom:20px;
+    }
+    .banner-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+    .banner h1{
+      font-size:38px;line-height:1.35;font-weight:800;letter-spacing:0.5px;
+      max-width:820px;margin-bottom:18px;
+    }
+    .banner h1 .hl{
+      background:linear-gradient(135deg,var(--accent),#f97316);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .banner p.lead{
+      color:var(--text-soft);font-size:15.5px;max-width:720px;margin-bottom:28px;
+    }
+    .banner-search{
+      display:flex;align-items:center;gap:0;
+      max-width:540px;background:var(--card);
+      border:1px solid var(--border);border-radius:40px;
+      padding:6px 6px 6px 22px;margin-bottom:26px;
+    }
+    .banner-search input{
+      flex:1;background:transparent;border:none;outline:none;
+      color:var(--text);font-size:14px;min-width:0;
+    }
+    .banner-search input::placeholder{color:#64748b;}
+    .banner-search button{flex-shrink:0;}
+    .quick-links{display:flex;flex-wrap:wrap;gap:10px;}
+    .quick-links a{
+      font-size:13px;color:var(--text-soft);
+      border:1px solid var(--border);border-radius:24px;
+      padding:6px 16px;transition:all .2s;background:rgba(255,255,255,0.02);
+    }
+    .quick-links a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
+
+    /* generic section spacing */
+    .sec{padding:52px 0;}
+    .sec.alt{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+    /* intro */
+    .intro-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;align-items:start;}
+    .intro-text p{color:var(--text-soft);margin-bottom:16px;font-size:14.5px;}
+    .intro-text p strong{color:var(--text);font-weight:600;}
+    .intro-panel{
+      background:linear-gradient(160deg,rgba(251,191,36,0.10),rgba(56,189,248,0.06));
+      border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;
+    }
+    .intro-panel h3{font-size:16px;margin-bottom:16px;color:var(--accent);}
+    .intro-panel ul li{
+      display:flex;justify-content:space-between;gap:10px;
+      font-size:13.5px;color:var(--text-soft);
+      padding:9px 0;border-bottom:1px dashed rgba(255,255,255,0.07);
+    }
+    .intro-panel ul li:last-child{border-bottom:none;}
+    .intro-panel ul li span:last-child{color:var(--text);font-weight:600;}
+
+    /* cards grid */
+    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .rec-card{padding:20px;display:flex;flex-direction:column;gap:12px;}
+    .rec-cover{
+      height:92px;border-radius:10px;
+      background:linear-gradient(135deg,#1e2b45,#2a3b5c);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;font-size:18px;color:rgba(251,191,36,0.75);
+      letter-spacing:2px;position:relative;overflow:hidden;
+    }
+    .rec-cover::after{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 78% 20%,rgba(251,191,36,0.25),transparent 60%);
+    }
+    .rec-card h3{font-size:16px;font-weight:700;}
+    .rec-card .desc{font-size:13px;color:var(--text-soft);flex:1;}
+    .rec-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft);border-top:1px solid var(--border);padding-top:10px;}
+    .rec-meta .hot{color:var(--accent);font-weight:600;}
+
+    /* updates list */
+    .updates-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    .update-item{
+      display:flex;gap:14px;padding:14px 18px;align-items:flex-start;
+    }
+    .update-time{
+      flex-shrink:0;font-size:12px;color:var(--accent);font-weight:600;
+      background:var(--accent-soft);border-radius:8px;padding:5px 10px;
+      min-width:78px;text-align:center;
+    }
+    .update-body h4{font-size:14.5px;margin-bottom:4px;}
+    .update-body p{font-size:12.5px;color:var(--text-soft);}
+
+    /* categories */
+    .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    .cat-item{
+      display:flex;align-items:center;gap:12px;padding:16px 18px;
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+      transition:all .2s;font-size:14px;font-weight:600;
+    }
+    .cat-item:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+    .cat-icon{
+      width:36px;height:36px;border-radius:9px;flex-shrink:0;
+      background:var(--accent-soft);color:var(--accent);
+      display:flex;align-items:center;justify-content:center;
+      font-size:16px;font-weight:800;
+    }
+
+    /* deep analysis */
+    .analysis-grid{display:grid;grid-template-columns:1fr 340px;gap:36px;align-items:start;}
+    .analysis-body h3{font-size:17px;margin:24px 0 10px;color:var(--accent);}
+    .analysis-body h3:first-child{margin-top:0;}
+    .analysis-body p{color:var(--text-soft);font-size:14.5px;margin-bottom:12px;}
+    .analysis-body p strong{color:var(--text);}
+    .side-note{
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:22px;position:sticky;top:88px;
+    }
+    .side-note h4{font-size:15px;margin-bottom:14px;color:var(--blue);}
+    .side-note ul li{
+      font-size:13px;color:var(--text-soft);padding:8px 0;
+      border-bottom:1px dashed rgba(255,255,255,0.06);
+    }
+    .side-note ul li:last-child{border-bottom:none;}
+
+    /* guide */
+    .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .guide-card{padding:22px;}
+    .guide-card .num{
+      font-size:26px;font-weight:800;color:rgba(251,191,36,0.35);
+      line-height:1;margin-bottom:12px;
+    }
+    .guide-card h4{font-size:15px;margin-bottom:8px;}
+    .guide-card p{font-size:13px;color:var(--text-soft);}
+
+    /* faq */
+    .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+    .faq-item{
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+      padding:20px 22px;
+    }
+    .faq-item h4{
+      font-size:14.5px;font-weight:700;margin-bottom:8px;color:var(--text);
+      display:flex;gap:8px;
+    }
+    .faq-item h4::before{content:"Q";color:var(--accent);font-weight:900;}
+    .faq-item p{font-size:13px;color:var(--text-soft);}
+
+    /* comments */
+    .comments-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    .comment-item{padding:16px 18px;}
+    .comment-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+    .avatar{
+      width:32px;height:32px;border-radius:50%;flex-shrink:0;
+      background:linear-gradient(135deg,#334155,#475569);
+      display:flex;align-items:center;justify-content:center;
+      font-size:13px;font-weight:700;color:var(--accent);
+    }
+    .comment-name{font-size:13.5px;font-weight:600;}
+    .comment-date{font-size:11px;color:#64748b;margin-left:auto;}
+    .comment-text{font-size:13px;color:var(--text-soft);}
+
+    /* news */
+    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .news-card{padding:20px;}
+    .news-card .date{font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:600;}
+    .news-card h4{font-size:14.5px;margin-bottom:8px;line-height:1.5;}
+    .news-card p{font-size:12.5px;color:var(--text-soft);}
+
+    /* footer */
+    footer{
+      border-top:1px solid var(--border);background:#080d18;
+      padding:44px 0 30px;color:var(--text-soft);font-size:13px;
+    }
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px;}
+    .foot-brand p{margin-top:12px;font-size:12.5px;line-height:1.8;max-width:300px;}
+    .foot-col h5{font-size:13.5px;color:var(--text);margin-bottom:14px;font-weight:700;}
+    .foot-col a{display:block;font-size:12.5px;margin-bottom:9px;transition:color .2s;}
+    .foot-col a:hover{color:var(--accent);}
+    .foot-bottom{
+      border-top:1px solid var(--border);padding-top:20px;
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+      font-size:12px;color:#64748b;
+    }
+
+    @media (max-width:960px){
+      .card-grid{grid-template-columns:repeat(2,1fr);}
+      .intro-grid{grid-template-columns:1fr;}
+      .analysis-grid{grid-template-columns:1fr;}
+      .side-note{position:static;}
+      .cat-grid{grid-template-columns:repeat(2,1fr);}
+      .guide-grid{grid-template-columns:1fr;}
+      .news-grid{grid-template-columns:1fr 1fr;}
+      .foot-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width:640px){
+      .banner h1{font-size:27px;}
+      .nav-links{display:none;}
+      .nav-search{min-width:0;flex:1;}
+      .nav-search input{width:100%;}
+      .card-grid,.updates-list,.faq-grid,.comments-grid,.news-grid{grid-template-columns:1fr;}
+      .cat-grid{grid-template-columns:1fr 1fr;}
+      .foot-grid{grid-template-columns:1fr;}
+      .banner-inner{padding:40px 20px 36px;}
+      .sec{padding:38px 0;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/#top" class="logo">
+      <span class="logo-mark">51</span>
+      <span>51每日大赛</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#daily-board">今日赛况</a>
+      <a href="/#hot-list">热门榜单</a>
+      <a href="/#cat-entry">分类入口</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#faq-zone">常见问题</a>
+      <a href="/#community">社区讨论</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="搜索选手 / 作品 / 赛程" aria-label="站内搜索">
+      <button>搜索</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ 首屏 Banner ============ -->
+<header class="banner" id="top">
+  <div class="banner-inner">
+    <div class="banner-badge"><span class="dot"></span> 2026年11月7日 · 今日大赛进行中</div>
+    <h1>51每日大赛官网首页<br><span class="hl">每日赛程 · 热门榜单 · 参赛指南</span></h1>
+    <p class="lead">51每日大赛官网首页为你聚合每日赛程、实时赛果与热门作品榜单。无论你是围观选手表现，还是查找参赛规则，都能在这里快速找到入口。每天更新，跟上大赛节奏。</p>
+    <div class="banner-search">
+      <input type="text" placeholder="输入关键词，查找今日赛程或热门作品" aria-label="首屏搜索">
+      <button class="btn">立即查找</button>
+    </div>
+    <div class="quick-links">
+      <a href="/#daily-board">今日赛况速览</a>
+      <a href="/#hot-list">热门作品榜单</a>
+      <a href="/#latest-update">最新更新</a>
+      <a href="/#cat-entry">分类导航</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">参赛指南</a>
+      <a href="/#faq-zone">常见问题</a>
+      <a href="/#community">用户评论</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 内容简介 ============ -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <h2>关于51每日大赛官网首页<span class="sec-sub">一个快速了解每日赛事的入口</span></h2>
+    <div class="intro-grid">
+      <div class="intro-text">
+        <p><strong>51每日大赛官网首页</strong>是面向所有关注每日大赛用户的信息聚合页面。每天都有新的赛程、新的作品和新的讨论在这里发生。对于刚接触的用户来说，最直接的疑问往往是：今天比什么、谁在领先、有哪些值得关注的作品。这个页面就是围绕这些需求来组织的。</p>
+        <p>页面中既有<strong>今日赛况速览</strong>，也有按热度排列的<strong>热门作品榜单</strong>，还有按题材划分的分类入口。你不需要翻很多层菜单，就能在首屏找到当天的核心信息。对于习惯追更的用户，最新更新模块会集中呈现赛程变化和结果发布的时间节点。</p>
+        <p>此外，<strong>51每日大赛</strong>的内容不仅限于结果本身。深度解析模块会从赛制、作品风格和选手表现几个角度展开，帮助读者理解大赛的看点在哪里。FAQ和用户评论则补充了实际参与者的反馈，让页面不只是信息陈列，也有社区讨论的氛围。如果你希望持续关注每日大赛动态，把这一页加入收藏会是比较省事的做法。</p>
+      </div>
+      <aside class="intro-panel">
+        <h3>今日数据速览</h3>
+        <ul>
+          <li><span>今日赛程场次</span><span>18 场</span></li>
+          <li><span>已结束比赛</span><span>11 场</span></li>
+          <li><span>进行中</span><span>5 场</span></li>
+          <li><span>待开始</span><span>2 场</span></li>
+          <li><span>今日参与作品</span><span>236 件</span></li>
+          <li><span>新增评论</span><span>1,482 条</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 热门内容推荐 ============ -->
+<section class="sec alt" id="hot-list">
+  <div class="wrap">
+    <h2>热门内容推荐<span class="sec-sub">按今日热度与讨论量综合排序</span></h2>
+    <div class="card-grid">
+      <article class="card rec-card">
+        <div class="rec-cover">赛道 A · 视觉</div>
+        <h3>城市夜景延时赛</h3>
+        <div><span class="tag">视觉赛道</span><span class="tag blue">延时摄影</span><span class="tag gray">今日热门</span></div>
+        <p class="desc">今晚八点截稿，目前已有47件作品提交。画面节奏与光影处理是主要评分方向，讨论区对构图多样性的呼声较高。</p>
+        <div class="rec-meta"><span class="hot">热度 9,820</span><span>今日 18:00 截止</span></div>
+      </article>
+      <article class="card rec-card">
+        <div class="rec-cover">赛道 B · 短篇</div>
+        <h3>三分钟叙事挑战</h3>
+        <div><span class="tag">叙事赛道</span><span class="tag blue">限时创作</span><span class="tag gray">进行中</span></div>
+        <p class="desc">用三分钟讲一个完整故事，本轮主题为“意外”。评委关注结构与情绪落点，目前排名前五的作品差距很小。</p>
+        <div class="rec-meta"><span class="hot">热度 8,430</span><span>第2轮进行中</span></div>
+      </article>
+      <article class="card rec-card">
+        <div class="rec-cover">赛道 C · 创意</div>
+        <h3>日常物件重构赛</h3>
+        <div><span class="tag">创意赛道</span><span class="tag blue">材料实验</span><span class="tag gray">新赛题</span></div>
+        <p class="desc">用日常物件完成一次视觉重构，强调材料语言与概念表达。今天刚开放提交，已有不少选手上传草稿。</p>
+        <div class="rec-meta"><span class="hot">热度 6,710</span><span>今日 12:00 开放</span></div>
+      </article>
+      <article class="card rec-card">
+        <div class="rec-cover">赛道 D · 声音</div>
+        <h3>环境声混音对决</h3>
+        <div><span class="tag">声音赛道</span><span class="tag blue">混音</span><span class="tag gray">投票中</span></div>
+        <p class="desc">以城市环境声为素材进行二次创作。本轮作品整体完成度较高，社区投票将占到总评分的30%。</p>
+        <div class="rec-meta"><span class="hot">热度 5,960</span><span>投票截止 11月8日</span></div>
+      </article>
+      <article class="card rec-card">
+        <div class="rec-cover">赛道 E · 文字</div>
+        <h3>百字微小说擂台</h3>
+        <div><span class="tag">文字赛道</span><span class="tag blue">极短篇</span><span class="tag gray">明日开启</span></div>
+        <p class="desc">限定一百字以内完成一个完整片段。节奏紧凑、结尾有力是往年高分作品的共同点，明早十点准时开放。</p>
+        <div class="rec-meta"><span class="hot">热度 5,120</span><span>11月8日 10:00</span></div>
+      </article>
+      <article class="card rec-card">
+        <div class="rec-cover">赛道 F · 综合</div>
+        <h3>跨媒介联合作品赛</h3>
+        <div><span class="tag">综合赛道</span><span class="tag blue">联合创作</span><span class="tag gray">预告</span></div>
+        <p class="desc">允许两人组队，组合图像与声音完成一件完整作品。赛制说明已发布，报名通道将在本周内开放。</p>
+        <div class="rec-meta"><span class="hot">热度 4,870</span><span>赛制已公布</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 最新更新 ============ -->
+<section class="sec" id="latest-update">
+  <div class="wrap">
+    <h2>最新更新与赛程动态<span class="sec-sub">截至 2026年11月7日</span></h2>
+    <div class="updates-list">
+      <div class="card update-item">
+        <div class="update-time">今天 09:30</div>
+        <div class="update-body"><h4>城市夜景延时赛 首批作品上线</h4><p>视觉赛道已收到首批47件投稿，页面内可直接浏览缩略图与作者说明。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 10:15</div>
+        <div class="update-body"><h4>三分钟叙事挑战 第2轮排名刷新</h4><p>本轮前五名出现两处变动，评审短评同步更新在作品详情页。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 11:00</div>
+        <div class="update-body"><h4>日常物件重构赛 正式开放提交</h4><p>新赛题开放首小时已有23位选手上传草稿，赛道讨论区热度上升明显。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 12:40</div>
+        <div class="update-body"><h4>环境声混音对决 投票入口开启</h4><p>社区投票通道已开启，每位用户每日可投三票，截止时间为11月8日23:59。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 14:20</div>
+        <div class="update-body"><h4>百字微小说擂台 赛题预告发布</h4><p>明日赛题关键词已提前公布，选手可提前构思，正式提交从明早十点开始。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 15:05</div>
+        <div class="update-body"><h4>跨媒介联合作品赛 报名细则更新</h4><p>组队人数上限调整为两人，作品提交格式说明已在赛制页面补充。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 16:30</div>
+        <div class="update-body"><h4>今日总榜 综合热度突破新高</h4><p>视觉赛道与叙事赛道贡献了今日主要讨论量，总榜前十中新人作品占四席。</p></div>
+      </div>
+      <div class="card update-item">
+        <div class="update-time">今天 17:10</div>
+        <div class="update-body"><h4>评委答疑汇总页 已上线</h4><p>针对本轮常见疑问，评委组整理了十二条答复，可在FAQ区域查看。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 分类入口 ============ -->
+<section class="sec alt" id="cat-entry">
+  <div class="wrap">
+    <h2>分类入口<span class="sec-sub">按赛道和内容类型快速定位</span></h2>
+    <div class="cat-grid">
+      <a href="/#hot-list" class="cat-item"><span class="cat-icon">视</span>视觉赛道</a>
+      <a href="/#hot-list" class="cat-item"><span class="cat-icon">叙</span>叙事赛道</a>
+      <a href="/#hot-list" class="cat-item"><span class="cat-icon">创</span>创意赛道</a>
+      <a href="/#hot-list" class="cat-item"><span class="cat-icon">声</span>声音赛道</a>
+      <a href="/#hot-list" class="cat-item"><span class="cat-icon">文</span>文字赛道</a>
+      <a href="/#hot-list" class="cat-item"><span class="cat-icon">综</span>综合赛道</a>
+      <a href="/#daily-board" class="cat-item"><span class="cat-icon">今</span>今日赛程</a>
+      <a href="/#latest-update" class="cat-item"><span class="cat-icon">新</span>最新更新</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 今日赛况速览 ============ -->
+<section class="sec" id="daily-board">
+  <div class="wrap">
+    <h2>今日赛况速览<span class="sec-sub">2026年11月7日 实时更新</span></h2>
+    <div class="card-grid">
+      <div class="card rec-card">
+        <div class="rec-cover">视觉赛道</div>
+        <h3>城市夜景延时赛</h3>
+        <p class="desc">已收到47件作品，截稿时间为今晚18:00。目前暂列第一的作品以光影过渡自然见长。</p>
+        <div class="rec-meta"><span class="hot">进行中</span><span>截稿 18:00</span></div>
+      </div>
+      <div class="card rec-card">
+        <div class="rec-cover">叙事赛道</div>
+        <h3>三分钟叙事挑战</h3>
+        <p class="desc">第2轮评审进行中，前五名分差在3分以内。社区对第3名作品的结尾处理讨论较多。</p>
+        <div class="rec-meta"><span class="hot">评审中</span><span>结果 21:00</span></div>
+      </div>
+      <div class="card rec-card">
+        <div class="rec-cover">声音赛道</div>
+        <h3>环境声混音对决</h3>
+        <p class="desc">社区投票已开启，当前投票量超过2,300次。混音细节与素材选取是讨论焦点。</p>
+        <div class="rec-meta"><span class="hot">投票中</span><span>截止 11月8日</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 深度解析 ============ -->
+<section class="sec alt" id="deep-dive">
+  <div class="wrap">
+    <h2>深度解析：51每日大赛的看点在哪里<span class="sec-sub">编辑视角</span></h2>
+    <div class="analysis-grid">
+      <div class="analysis-body">
+        <h3>赛制节奏与每日更新逻辑</h3>
+        <p><strong>51每日大赛</strong>最鲜明的特点是“每日”二字。与周期较长的赛事不同，它把赛程压缩到以天为单位，每天都有明确的提交、评审和结果节点。这种节奏带来的直接好处是信息密度高，用户每天打开页面都能看到新的内容，不会出现长时间空档。对于选手来说，每日命题也降低了长期准备的负担，更考验临场发挥和日常积累。</p>
+        <p>从页面结构看，今日赛况速览和最新更新两个模块承担了节奏提示的功能。前者告诉你今天有哪些赛道正在进行，后者告诉你刚刚发生了什么变化。两者配合，能让读者在几十秒内判断出今天值不值得继续往下看。</p>
+        <h3>作品风格与赛道差异</h3>
+        <p>视觉赛道偏向画面完成度和光影控制，叙事赛道看重结构和情绪，声音赛道关注素材处理和空间感，文字赛道则强调在极短篇幅内完成表达。不同赛道的评分标准差异明显，这也是<strong>51每日大赛</strong>能持续吸引不同背景参与者的原因之一。页面中的分类入口按赛道划分，方便用户直接跳到感兴趣的区域。</p>
+        <p>值得注意的是，综合赛道允许跨媒介组队，近几年出现了不少将图像与声音结合的作品。这类作品在深度解析中经常被拿出来讨论，因为它们更接近实际创作中的协作状态。</p>
+        <h3>适合什么人关注</h3>
+        <p>如果你是对创作比赛感兴趣的新人，这个页面可以作为了解赛制和评审偏好的起点。如果你是习惯围观讨论的老用户，热门榜单和社区评论会更适合你。对于只是想每天看点新内容的人来说，最新更新和推荐卡片也足够支撑一次轻松的浏览。<strong>51每日大赛官网首页</strong>在设计上兼顾了这几类需求，没有把某一类用户挡在门外。</p>
+      </div>
+      <aside class="side-note">
+        <h4>阅读提示</h4>
+        <ul>
+          <li>今日视觉赛道截稿时间较早，建议优先查看。</li>
+          <li>叙事赛道排名变化频繁，可关注晚间结果。</li>
+          <li>声音赛道投票与评审并行，评价维度不同。</li>
+          <li>新赛题开放初期作品数量少，适合提前浏览。</li>
+          <li>评委答疑汇总可解答大部分赛制疑问。</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 体验指南 ============ -->
+<section class="sec" id="guide">
+  <div class="wrap">
+    <h2>页面体验指南<span class="sec-sub">让浏览更顺手</span></h2>
+    <div class="guide-grid">
+      <div class="card guide-card">
+        <div class="num">01</div>
+        <h4>先从今日赛况看起</h4>
+        <p>首屏下方的今日赛况速览按赛道列出进行中的比赛。如果你只想快速知道今天发生了什么，从这里开始最省时间。</p>
+      </div>
+      <div class="card guide-card">
+        <div class="num">02</div>
+        <h4>用分类入口缩小范围</h4>
+        <p>八个分类入口覆盖主要赛道和更新区域。点击后会跳到对应栏目，适合已经知道自己想看哪一类的用户。</p>
+      </div>
+      <div class="card guide-card">
+        <div class="num">03</div>
+        <h4>热门榜单适合发现新内容</h4>
+        <p>榜单按热度和讨论量排列，不完全是评审排名。想找讨论度高或风格突出的作品，可以从这里入手。</p>
+      </div>
+      <div class="card guide-card">
+        <div class="num">04</div>
+        <h4>深度解析补充背景</h4>
+        <p>如果你对赛制或某一类作品不理解，深度解析模块提供了编辑视角的说明，比零散评论更系统。</p>
+      </div>
+      <div class="card guide-card">
+        <div class="num">05</div>
+        <h4>FAQ解决具体疑问</h4>
+        <p>常见问题覆盖了提交、评审、投票和结果公布等环节。遇到具体规则问题，先看这里通常能找到答案。</p>
+      </div>
+      <div class="card guide-card">
+        <div class="num">06</div>
+        <h4>移动端浏览同样完整</h4>
+        <p>页面在手机端会自动调整为单列布局，导航收起为搜索框优先，卡片和文字仍然保持可读。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec alt" id="faq-zone">
+  <div class="wrap">
+    <h2>常见问题<span class="sec-sub">围绕51每日大赛的常见疑问</span></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>51每日大赛每天都有比赛吗？</h4>
+        <p>是的，每日大赛的核心节奏就是每天安排不同赛道的提交或评审环节。部分赛道采取轮次制，比如叙事挑战分多轮进行，但每天都会有新的进展。页面中的最新更新模块会按时间顺序列出当天的重要节点。</p>
+      </div>
+      <div class="faq-item">
+        <h4>热门榜单的排名依据是什么？</h4>
+        <p>热门榜单综合了作品浏览、讨论量和社区互动等指标，与评审排名不是同一套体系。它更适合用来发现话题度高的作品。如果你关注的是最终成绩，建议参考各赛道评审结果。</p>
+      </div>
+      <div class="faq-item">
+        <h4>新人应该先看哪个赛道？</h4>
+        <p>如果只是了解氛围，视觉赛道和文字赛道的作品比较容易在短时间内看懂。叙事赛道和声音赛道需要稍微多花一点时间理解背景。分类入口可以帮助你快速切换到感兴趣的赛道。</p>
+      </div>
+      <div class="faq-item">
+        <h4>51每日大赛官网首页会更新历史结果吗？</h4>
+        <p>页面主要呈现当日和近期的赛况，历史结果会通过相关资讯和社区讨论保留线索。对于较早的赛程，可以通过搜索或翻看资讯流找到当时的记录。深度解析中也会引用部分过往案例。</p>
+      </div>
+      <div class="faq-item">
+        <h4>社区投票会影响最终成绩吗？</h4>
+        <p>不同赛道的权重设置不一样。声音赛道在说明中明确社区投票占30%，其他赛道多数以评审意见为主。具体比例可以在对应赛道的赛制说明中查看，FAQ中也会补充说明。</p>
+      </div>
+      <div class="faq-item">
+        <h4>页面上的推荐内容是编辑挑选的吗？</h4>
+        <p>推荐卡片结合了编辑挑选和热度数据。部分卡片突出赛道特点，部分卡片突出当日讨论热点。它们不是广告位，也不代表最终评审倾向，更多是作为浏览路线的补充。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 用户评论 ============ -->
+<section class="sec" id="community">
+  <div class="wrap">
+    <h2>用户评论<span class="sec-sub">来自社区的真实讨论</span></h2>
+    <div class="comments-grid">
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">夜</span><span class="comment-name">夜航星</span><span class="comment-date">11月6日</span></div>
+        <p class="comment-text">今天视觉赛道的作品整体比昨天稳，光影过渡处理得比较自然。不过有几件构图太像了，希望后面能看到更多变化。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">林</span><span class="comment-name">林间有风</span><span class="comment-date">11月5日</span></div>
+        <p class="comment-text">叙事挑战第二轮的前三名我都看了，第二名那个结尾有点仓促，评委给的分偏高。可能现场感更强吧。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">阿</span><span class="comment-name">阿七不熬夜</span><span class="comment-date">11月4日</span></div>
+        <p class="comment-text">每天上来先看最新更新，再看热门榜单。这个顺序对我挺合适的，不用翻太多页就能知道今天大概什么情况。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">声</span><span class="comment-name">声场边缘</span><span class="comment-date">11月6日</span></div>
+        <p class="comment-text">声音赛道这轮有几个混音作品层次做得不错，但环境声素材的选择有点重复。希望下一轮能听到更不一样的素材组合。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">白</span><span class="comment-name">白昼梦游</span><span class="comment-date">11月3日</span></div>
+        <p class="comment-text">百字微小说擂台明天才开，我已经看到讨论区有人在猜题目了。往年这种极短篇反而最容易出惊喜。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">三</span><span class="comment-name">三水工</span><span class="comment-date">11月5日</span></div>
+        <p class="comment-text">综合赛道允许组队之后，作品完整度确实上来了。不过两个人风格不统一的话也很容易看出来，有利有弊。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">一</span><span class="comment-name">一只栗子</span><span class="comment-date">11月6日</span></div>
+        <p class="comment-text">页面改版之后找东西方便多了，分类入口直接跳转，不用在导航里一层层点。希望保持这个结构。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">光</span><span class="comment-name">光斑收集者</span><span class="comment-date">11月4日</span></div>
+        <p class="comment-text">视觉赛道今天的截稿时间有点早，六点就结束，上班族可能来不及。不过规则既然定了也能理解。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">评</span><span class="comment-name">评委嘴替</span><span class="comment-date">11月2日</span></div>
+        <p class="comment-text">FAQ里那段关于投票权重的说明挺有用的，之前一直以为所有赛道社区投票占比都一样，原来不是。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">慢</span><span class="comment-name">慢半拍选手</span><span class="comment-date">11月6日</span></div>
+        <p class="comment-text">第一次参加日常物件重构赛，草稿阶段就有点卡住了。看了讨论区其他人的思路才找到方向，社区氛围还行。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">路</span><span class="comment-name">路过看看</span><span class="comment-date">11月5日</span></div>
+        <p class="comment-text">我不参赛，纯粹每天来看作品。热门榜单里偶尔能翻到很有意思的东西，比刷推荐流有效率。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">月</span><span class="comment-name">月下独行</span><span class="comment-date">11月3日</span></div>
+        <p class="comment-text">深度解析那篇关于赛制节奏的分析写得挺清楚，之前没想明白为什么每天都有比赛，看完就理解了。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">小</span><span class="comment-name">小满未满</span><span class="comment-date">11月6日</span></div>
+        <p class="comment-text">今天视觉赛道前几名差距很小，作品说明里提到的创作时间都挺短的，能做成这样不容易。</p>
+      </div>
+      <div class="card comment-item">
+        <div class="comment-head"><span class="avatar">木</span><span class="comment-name">木鱼脑袋</span><span class="comment-date">11月1日</span></div>
+        <p class="comment-text">希望最新更新那里能加个筛选，只看自己关注的赛道。现在每条都看的话信息有点多。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 相关资讯 ============ -->
+<section class="sec alt" id="news-flow">
+  <div class="wrap">
+    <h2>相关资讯<span class="sec-sub">大赛动态与观察</span></h2>
+    <div class="news-grid">
+      <article class="card news-card">
+        <div class="date">2026年11月7日</div>
+        <h4>视觉赛道截稿日热度攀升，首批作品集中上线</h4>
+        <p>城市夜景延时赛进入截稿日，首批47件作品已上线。评审组表示本轮整体完成度高于上一轮。</p>
+      </article>
+      <article class="card news-card">
+        <div class="date">2026年11月6日</div>
+        <h4>叙事挑战第二轮排名胶着，评审短评同步更新</h4>
+        <p>前五名分差在3分以内，评审短评已更新至作品详情。社区对结尾处理方式的讨论明显增多。</p>
+      </article>
+      <article class="card news-card">
+        <div class="date">2026年11月5日</div>
+        <h4>声音赛道投票机制说明补充，权重占比明确</h4>
+        <p>官方补充了社区投票在声音赛道中的权重说明，并明确了投票截止时间与计票规则。</p>
+      </article>
+      <article class="card news-card">
+        <div class="date">2026年11月4日</div>
+        <h4>综合赛道组队规则调整，人数上限改为两人</h4>
+        <p>跨媒介联合作品赛的组队人数上限从三人调整为两人，提交格式说明同步更新。</p>
+      </article>
+      <article class="card news-card">
+        <div class="date">2026年11月3日</div>
+        <h4>百字微小说擂台赛题预告，明日十点开放提交</h4>
+        <p>明日赛题关键词已提前公布，选手可提前构思。极短篇赛道的评分重点仍然是结构与结尾。</p>
+      </article>
+      <article class="card news-card">
+        <div class="date">2026年11月2日</div>
+        <h4>评委答疑汇总上线，覆盖赛制与提交常见疑问</h4>
+        <p>评委组整理了十二条答疑，集中在提交格式、评审维度与投票规则三个方向，可在FAQ区域查看。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="logo-mark">51</span><span>51每日大赛</span></div>
+        <p>聚合每日赛程、热门榜单与社区讨论，为关注51每日大赛的用户提供清晰的信息入口。页面内容随赛程每日更新。</p>
+      </div>
+      <div class="foot-col">
+        <h5>快速导航</h5>
+        <a href="/#daily-board">今日赛况</a>
+        <a href="/#hot-list">热门榜单</a>
+        <a href="/#cat-entry">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+      </div>
+      <div class="foot-col">
+        <h5>社区</h5>
+        <a href="/#community">用户评论</a>
+        <a href="/#faq-zone">常见问题</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#news-flow">相关资讯</a>
+      </div>
+      <div class="foot-col">
+        <h5>友情链接</h5>
+        <a href="#">友情链接占位</a>
+        <a href="#">合作伙伴占位</a>
+        <a href="#">赛事合作占位</a>
+        <a href="#">媒体资源占位</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 51每日大赛官网首页 · 内容整理与展示</span>
+      <span>免责声明：页面信息以官方发布为准，本站仅作信息聚合与讨论展示。</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
