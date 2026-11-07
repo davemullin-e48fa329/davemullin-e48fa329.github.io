@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>漫播网页版-在线收听与互动社区_漫播网页版内容推荐与使用指南</title>
+  <meta name="description" content="漫播网页版内容专题，聚合在线收听入口、热门声优广播剧、互动直播与社区讨论。提供类型筛选、更新追踪、新手指南与常见问题，帮助您快速找到适合的漫播网页版收听内容与互动玩法。">
+  <meta name="keywords" content="漫播网页版,漫播网页版在线收听,漫播网页版广播剧,漫播网页版互动直播,漫播网页版社区">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f97316'/%3E%3Cpath d='M30 62V38l25-12 25 12v24L55 74 30 62z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='55' cy='44' r='10' fill='%23f97316'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#fefaf5;
+      --surface:#ffffff;
+      --surface-soft:#fff7ed;
+      --ink:#1f1a14;
+      --ink-soft:#4f463c;
+      --muted:#8a7e72;
+      --line:#f0e4d6;
+      --brand:#f97316;
+      --brand-deep:#c2410c;
+      --brand-soft:#ffedd5;
+      --accent:#0f766e;
+      --accent-soft:#ccfbf1;
+      --gold:#b45309;
+      --radius-s:10px;
+      --radius-m:16px;
+      --radius-l:24px;
+      --shadow-s:0 2px 8px rgba(80,50,20,.05);
+      --shadow-m:0 10px 28px rgba(100,60,20,.08);
+      --shadow-l:0 22px 48px rgba(100,60,20,.12);
+      --font:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font);
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      background-image:radial-gradient(circle at 8% 4%,#fff1e0 0,transparent 32%),radial-gradient(circle at 92% 8%,#ffe8d1 0,transparent 30%);
+      background-attachment:fixed;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    ul{list-style:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+    .section{padding:46px 0 8px}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+    .section-head h2{font-size:clamp(1.35rem,2.4vw,1.8rem);letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+    .section-head h2::before{content:"";width:8px;height:26px;border-radius:6px;background:linear-gradient(180deg,var(--brand),#fbbf24)}
+    .section-note{color:var(--muted);font-size:.9rem;max-width:560px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:999px;font-size:.92rem;font-weight:600;transition:.22s;border:1px solid transparent}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),#fb923c);color:#fff;box-shadow:0 8px 20px rgba(249,115,22,.28)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(249,115,22,.36)}
+    .btn-ghost{border-color:var(--line);color:var(--ink-soft);background:var(--surface)}
+    .btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep)}
+    .tag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:.74rem;background:var(--brand-soft);color:var(--brand-deep);font-weight:600;letter-spacing:.2px}
+    .tag-teal{background:var(--accent-soft);color:#115e59}
+    .tag-gold{background:#fef3c7;color:#92400e}
+
+    /* 顶部导航 */
+    .topbar{position:sticky;top:0;z-index:60;background:rgba(254,250,245,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .topbar-inner{display:flex;align-items:center;gap:18px;height:66px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;letter-spacing:.4px;color:var(--ink);flex-shrink:0}
+    .logo-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),#fbbf24);display:grid;place-items:center;color:#fff;font-size:1.05rem;box-shadow:0 6px 14px rgba(249,115,22,.3);position:relative}
+    .logo-mark::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#fff;opacity:.85;top:9px;right:9px}
+    .logo small{display:block;font-size:.62rem;font-weight:500;color:var(--muted);letter-spacing:1px}
+    .nav-links{display:flex;align-items:center;gap:4px;margin-left:8px;overflow-x:auto;scrollbar-width:none}
+    .nav-links::-webkit-scrollbar{display:none}
+    .nav-links a{padding:8px 12px;border-radius:999px;font-size:.9rem;color:var(--ink-soft);white-space:nowrap;transition:.2s}
+    .nav-links a:hover{background:var(--brand-soft);color:var(--brand-deep)}
+    .nav-actions{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .nav-search{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 14px;box-shadow:var(--shadow-s)}
+    .nav-search input{border:none;outline:none;background:transparent;font-size:.86rem;width:130px;color:var(--ink)}
+    .nav-search button{width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:.8rem}
+
+    /* Banner */
+    .hero{position:relative;padding:56px 0 40px;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(251,146,60,.16),transparent 55%),radial-gradient(ellipse at 88% 20%,rgba(15,118,110,.1),transparent 50%);pointer-events:none}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.78rem;color:var(--brand-deep);font-weight:600;box-shadow:var(--shadow-s);margin-bottom:18px}
+    .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.16)}
+    .hero h1{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.22;letter-spacing:.5px;color:var(--ink)}
+    .hero h1 em{font-style:normal;color:var(--brand-deep);position:relative}
+    .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;background:rgba(251,146,60,.3);border-radius:6px;z-index:-1}
+    .hero p.lead{margin-top:16px;color:var(--ink-soft);font-size:1.02rem;max-width:560px}
+    .hero-search{margin-top:26px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:var(--shadow-m);max-width:540px}
+    .hero-search input{flex:1;border:none;outline:none;background:transparent;font-size:.95rem;color:var(--ink);min-width:0}
+    .hero-search .btn{padding:10px 20px;border-radius:999px;flex-shrink:0}
+    .hero-chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+    .hero-chips a{font-size:.8rem;padding:6px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink-soft);transition:.2s}
+    .hero-chips a:hover{border-color:var(--brand);color:var(--brand-deep);background:var(--brand-soft)}
+    .hero-art{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .art-card{border-radius:var(--radius-m);padding:18px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-m);transition:.28s}
+    .art-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-l)}
+    .art-card:nth-child(1){background:linear-gradient(150deg,#ffedd5,#fff7ed)}
+    .art-card:nth-child(2){background:linear-gradient(150deg,#ccfbf1,#f0fdfa);margin-top:26px}
+    .art-card:nth-child(3){background:linear-gradient(150deg,#fef3c7,#fffbeb);margin-top:-8px}
+    .art-card:nth-child(4){background:linear-gradient(150deg,#fce7f3,#fdf2f8);margin-top:18px}
+    .art-cover{height:74px;border-radius:12px;background:linear-gradient(135deg,rgba(249,115,22,.24),rgba(251,191,36,.18));margin-bottom:12px;position:relative;overflow:hidden}
+    .art-cover::after{content:"";position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.55);right:-8px;bottom:-10px}
+    .art-card h3{font-size:.9rem;margin-bottom:4px;color:var(--ink)}
+    .art-card p{font-size:.74rem;color:var(--muted);line-height:1.55}
+    .art-card .meta{margin-top:8px;font-size:.7rem;color:var(--brand-deep);font-weight:600}
+
+    /* 快捷分类 */
+    .quick-cats{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+    .cat-pill{display:flex;flex-direction:column;align-items:center;gap:7px;padding:16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);font-size:.82rem;color:var(--ink-soft);transition:.24s;text-align:center}
+    .cat-pill:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:var(--shadow-m);color:var(--brand-deep)}
+    .cat-pill .ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:1.05rem;background:var(--brand-soft);color:var(--brand-deep)}
+    .cat-pill:nth-child(2n) .ico{background:var(--accent-soft);color:#115e59}
+    .cat-pill:nth-child(3n) .ico{background:#fef3c7;color:#92400e}
+
+    /* 内容卡片 */
+    .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;box-shadow:var(--shadow-s);transition:.28s;display:flex;flex-direction:column}
+    .content-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-l);border-color:#fcd9b8}
+    .cc-cover{height:130px;background:linear-gradient(135deg,#ffedd5,#fde68a);position:relative;display:flex;align-items:flex-end;padding:12px}
+    .cc-cover.alt1{background:linear-gradient(135deg,#ccfbf1,#99f6e4)}
+    .cc-cover.alt2{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+    .cc-cover.alt3{background:linear-gradient(135deg,#e0e7ff,#c7d2fe)}
+    .cc-cover.alt4{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+    .cc-cover.alt5{background:linear-gradient(135deg,#ffe4e6,#fecdd3)}
+    .cc-cover .badge{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border-radius:999px;font-size:.7rem;padding:3px 10px;font-weight:700;color:var(--brand-deep)}
+    .cc-cover .heat{position:absolute;top:12px;right:12px;background:rgba(31,26,20,.72);color:#fff;border-radius:999px;font-size:.7rem;padding:3px 9px}
+    .cc-cover h3{font-size:1rem;color:var(--ink);background:rgba(255,255,255,.78);backdrop-filter:blur(3px);padding:4px 10px;border-radius:8px;line-height:1.4}
+    .cc-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .cc-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .cc-desc{font-size:.83rem;color:var(--ink-soft);line-height:1.6;flex:1}
+    .cc-foot{display:flex;justify-content:space-between;align-items:center;font-size:.74rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:2px}
+    .cc-foot strong{color:var(--brand-deep);font-weight:600}
+
+    /* 更新列表 */
+    .update-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .update-item{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:.22s}
+    .update-item:hover{border-color:#fcd9b8;box-shadow:var(--shadow-s);transform:translateX(3px)}
+    .up-time{flex-shrink:0;font-size:.72rem;color:var(--brand-deep);background:var(--brand-soft);padding:4px 9px;border-radius:999px;font-weight:600;white-space:nowrap}
+    .up-body h4{font-size:.9rem;margin-bottom:2px}
+    .up-body p{font-size:.78rem;color:var(--muted)}
+
+    /* 深度解析 */
+    .deep-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:start}
+    .deep-main{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:30px 32px;box-shadow:var(--shadow-s)}
+    .deep-main h3{font-size:1.15rem;margin:22px 0 8px;color:var(--brand-deep)}
+    .deep-main h3:first-child{margin-top:0}
+    .deep-main p{font-size:.93rem;color:var(--ink-soft);margin-bottom:12px}
+    .deep-main .quote{border-left:4px solid var(--brand);background:var(--surface-soft);padding:12px 16px;border-radius:0 12px 12px 0;font-size:.88rem;color:var(--ink-soft);margin:14px 0}
+    .side-card{background:linear-gradient(160deg,#fff7ed,#fffbeb);border:1px solid #fde3c4;border-radius:var(--radius-l);padding:22px;box-shadow:var(--shadow-s)}
+    .side-card h4{font-size:.95rem;margin-bottom:12px;color:var(--brand-deep)}
+    .side-card ul li{font-size:.82rem;color:var(--ink-soft);padding:6px 0;border-bottom:1px dashed #f3d9bd;display:flex;justify-content:space-between;gap:10px}
+    .side-card ul li:last-child{border-bottom:none}
+    .side-card ul li span:last-child{color:var(--muted);font-size:.75rem;white-space:nowrap}
+
+    /* 体验指南 */
+    .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .guide-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:20px;box-shadow:var(--shadow-s);transition:.24s}
+    .guide-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-m)}
+    .guide-card .gi{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand-deep);font-size:1.1rem;margin-bottom:12px}
+    .guide-card h4{font-size:.95rem;margin-bottom:6px}
+    .guide-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+    /* FAQ */
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .faq-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.9rem;font-weight:600;color:var(--ink)}
+    .faq-q .plus{width:22px;height:22px;border-radius:50%;background:var(--brand-soft);color:var(--brand-deep);display:grid;place-items:center;font-size:.85rem;flex-shrink:0;transition:.2s}
+    .faq-item.open .faq-q .plus{transform:rotate(45deg);background:var(--brand);color:#fff}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 18px}
+    .faq-a p{font-size:.84rem;color:var(--ink-soft);padding-bottom:16px;line-height:1.7}
+    .faq-item.open .faq-a{max-height:260px}
+
+    /* 评论 */
+    .comment-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .comment{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-s);transition:.2s}
+    .comment:hover{box-shadow:var(--shadow-m)}
+    .cm-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .cm-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#fb923c,#fbbf24);display:grid;place-items:center;color:#fff;font-size:.75rem;font-weight:700;flex-shrink:0}
+    .cm-avatar.a2{background:linear-gradient(135deg,#14b8a6,#2dd4bf)}
+    .cm-avatar.a3{background:linear-gradient(135deg,#f472b6,#fb7185)}
+    .cm-avatar.a4{background:linear-gradient(135deg,#818cf8,#a5b4fc)}
+    .cm-name{font-size:.82rem;font-weight:600}
+    .cm-time{font-size:.7rem;color:var(--muted);margin-left:auto}
+    .cm-text{font-size:.83rem;color:var(--ink-soft);line-height:1.65}
+
+    /* 资讯 */
+    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .news-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:18px;transition:.24s;display:flex;flex-direction:column;gap:8px}
+    .news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-m);border-color:#fcd9b8}
+    .news-date{font-size:.72rem;color:var(--brand-deep);font-weight:600;letter-spacing:.5px}
+    .news-card h4{font-size:.92rem;line-height:1.45}
+    .news-card p{font-size:.8rem;color:var(--muted);line-height:1.6}
+
+    /* 页脚 */
+    .footer{margin-top:56px;background:#1f1a14;color:#d6cdc2;padding:46px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+    .footer h5{font-size:.9rem;color:#fff;margin-bottom:12px;letter-spacing:.5px}
+    .footer p,.footer a{font-size:.8rem;color:#a89f94;line-height:1.8}
+    .footer a:hover{color:#fbbf24}
+    .footer-links li{margin-bottom:6px}
+    .footer-bottom{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.75rem;color:#8a7f72}
+
+    /* 响应式 */
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr;gap:28px}
+      .hero-art{grid-template-columns:repeat(4,1fr);gap:10px}
+      .art-card:nth-child(n){margin-top:0}
+      .quick-cats{grid-template-columns:repeat(4,1fr)}
+      .grid-cards{grid-template-columns:repeat(2,1fr)}
+      .deep-grid{grid-template-columns:1fr}
+      .guide-grid{grid-template-columns:repeat(2,1fr)}
+      .news-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .nav-search input{width:86px}
+      .hero{padding:34px 0 24px}
+      .hero-art{grid-template-columns:1fr 1fr}
+      .quick-cats{grid-template-columns:repeat(4,1fr);gap:8px}
+      .cat-pill{font-size:.72rem;padding:12px 4px}
+      .grid-cards,.update-list,.faq-grid,.comment-list,.news-grid,.guide-grid{grid-template-columns:1fr}
+      .deep-main{padding:22px 18px}
+      .footer-grid{grid-template-columns:1fr}
+      .section{padding:34px 0 4px}
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="/#top" class="logo" aria-label="漫播网页版内容站">
+      <span class="logo-mark">播</span>
+      <span>漫播网页版<small>内容发现 · 在线收听</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="/#热门推荐">热门推荐</a>
+      <a href="/#最新更新">最新更新</a>
+      <a href="/#深度解析">深度解析</a>
+      <a href="/#体验指南">体验指南</a>
+      <a href="/#常见问题">常见问题</a>
+      <a href="/#用户评论">用户评论</a>
+      <a href="/#相关资讯">相关资讯</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-search">
+        <input type="search" placeholder="搜广播剧 / 声优 / 直播" aria-label="站内搜索">
+        <button aria-label="搜索">⌕</button>
+      </div>
+      <a href="/#热门推荐" class="btn btn-primary" style="padding:8px 16px;">开始收听</a>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 Banner -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-badge"><span class="dot"></span> 2026年11月7日 · 最新内容已更新</span>
+      <h1>漫播网页版：<em>在线收听</em>与互动社区内容发现指南</h1>
+      <p class="lead">聚合漫播网页版热门广播剧、声优访谈与互动直播入口，按类型、更新节奏与收听场景整理推荐清单，让每一次打开网页都能快速找到想听的内容。</p>
+      <p class="lead" style="margin-top:8px;font-size:.92rem;color:var(--muted)">支持按题材筛选、追更提醒与社区讨论，适合通勤、睡前与碎片时间在线收听。</p>
+      <form class="hero-search" onsubmit="return false;">
+        <input type="search" placeholder="输入关键词，如：漫播网页版广播剧、悬疑、声优直播">
+        <button class="btn btn-primary" type="submit">搜索内容</button>
+      </form>
+      <div class="hero-chips">
+        <a href="/#热门推荐">悬疑广播剧</a>
+        <a href="/#热门推荐">古风言情</a>
+        <a href="/#最新更新">今日更新</a>
+        <a href="/#体验指南">新手指南</a>
+        <a href="/#深度解析">声优阵容</a>
+        <a href="/#用户评论">社区热评</a>
+        <a href="/#相关资讯">动态资讯</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="art-card">
+        <div class="art-cover"></div>
+        <h3>悬疑推理季</h3>
+        <p>多部漫播网页版热门悬疑剧集集中更新</p>
+        <div class="meta">本周热度 ↑ 32%</div>
+      </div>
+      <div class="art-card">
+        <div class="art-cover"></div>
+        <h3>声优直播夜</h3>
+        <p>互动直播与弹幕问答，近距离聊角色</p>
+        <div class="meta">今晚 20:00 开播</div>
+      </div>
+      <div class="art-card">
+        <div class="art-cover"></div>
+        <h3>古风精选</h3>
+        <p>口碑古风广播剧与配乐赏析合集</p>
+        <div class="meta">编辑推荐 · 12部</div>
+      </div>
+      <div class="art-card">
+        <div class="art-cover"></div>
+        <h3>新人友好</h3>
+        <p>从入门到追更，漫播网页版使用路径</p>
+        <div class="meta">阅读 2.3 万</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 快捷分类入口 -->
+<section class="section" id="分类入口">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>按类型快速进入</h2>
+      <span class="section-note">漫播网页版内容按题材与场景归类，点选即可浏览对应推荐。</span>
+    </div>
+    <div class="quick-cats">
+      <a class="cat-pill" href="/#热门推荐"><span class="ico">悬</span>悬疑推理</a>
+      <a class="cat-pill" href="/#热门推荐"><span class="ico">古</span>古风言情</a>
+      <a class="cat-pill" href="/#热门推荐"><span class="ico">现</span>现代都市</a>
+      <a class="cat-pill" href="/#热门推荐"><span class="ico">奇</span>奇幻冒险</a>
+      <a class="cat-pill" href="/#最新更新"><span class="ico">声</span>声优直播</a>
+      <a class="cat-pill" href="/#最新更新"><span class="ico">新</span>新剧上线</a>
+      <a class="cat-pill" href="/#深度解析"><span class="ico">评</span>深度剧评</a>
+      <a class="cat-pill" href="/#用户评论"><span class="ico">社</span>社区讨论</a>
+    </div>
+  </div>
+</section>
+
+<!-- 热门推荐 -->
+<section class="section" id="热门推荐">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>热门内容推荐</h2>
+      <span class="section-note">结合近期收听热度与社区讨论度整理，覆盖漫播网页版多个热门题材。</span>
+    </div>
+    <div class="grid-cards">
+      <article class="content-card">
+        <div class="cc-cover"><span class="badge">悬疑</span><span class="heat">热度 9.6</span><h3>雾港回声</h3></div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="tag">悬疑推理</span><span class="tag tag-teal">双男主</span><span class="tag tag-gold">已完结</span></div>
+          <p class="cc-desc">以港口旧案为引，层层反转的推理线，声场设计在漫播网页版中属于高完成度的一档，适合喜欢沉浸式解谜的听众。</p>
+          <div class="cc-foot"><span>更新至 28 集</span><strong>9.6 分</strong></div>
+        </div>
+      </article>
+      <article class="content-card">
+        <div class="cc-cover alt1"><span class="badge">古风</span><span class="heat">热度 9.4</span><h3>春山寄信</h3></div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="tag">古风言情</span><span class="tag tag-teal">细腻群像</span><span class="tag tag-gold">更新中</span></div>
+          <p class="cc-desc">书信体结构推进感情线，配乐与吟唱段落是亮点。漫播网页版弹幕区常有人逐集整理时间线，适合慢节奏听众。</p>
+          <div class="cc-foot"><span>更新至 16 集</span><strong>9.4 分</strong></div>
+        </div>
+      </article>
+      <article class="content-card">
+        <div class="cc-cover alt2"><span class="badge">都市</span><span class="heat">热度 9.1</span><h3>深夜电台 27 号</h3></div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="tag">现代都市</span><span class="tag tag-teal">治愈</span><span class="tag tag-gold">单元剧</span></div>
+          <p class="cc-desc">以深夜来电串联的都市单元故事，每集独立又互有伏笔。适合睡前在漫播网页版按集收听，情绪浓度控制得不错。</p>
+          <div class="cc-foot"><span>更新至 22 集</span><strong>9.1 分</strong></div>
+        </div>
+      </article>
+      <article class="content-card">
+        <div class="cc-cover alt3"><span class="badge">奇幻</span><span class="heat">热度 8.9</span><h3>北境契约录</h3></div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="tag">奇幻冒险</span><span class="tag tag-teal">世界观宏大</span><span class="tag tag-gold">连载</span></div>
+          <p class="cc-desc">架空大陆设定扎实，多线叙事在漫播网页版的章节导航里被整理得很清楚，新人建议从序章开始按顺序听。</p>
+          <div class="cc-foot"><span>更新至 34 集</span><strong>8.9 分</strong></div>
+        </div>
+      </article>
+      <article class="content-card">
+        <div class="cc-cover alt4"><span class="badge">直播</span><span class="heat">热度 9.3</span><h3>声优夜话·周五场</h3></div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="tag">互动直播</span><span class="tag tag-teal">弹幕问答</span><span class="tag tag-gold">每周五</span></div>
+          <p class="cc-desc">漫播网页版互动直播栏目，主创会聊角色幕后并回应弹幕提问，适合想了解配音过程与角色理解的听众。</p>
+          <div class="cc-foot"><span>周五 20:00</span><strong>预约 1.2 万</strong></div>
+        </div>
+      </article>
+      <article class="content-card">
+        <div class="cc-cover alt5"><span class="badge">口碑</span><span class="heat">热度 9.0</span><h3>旧唱片与夏日</h3></div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="tag">青春成长</span><span class="tag tag-teal">治愈系</span><span class="tag tag-gold">短篇</span></div>
+          <p class="cc-desc">十集体量的短篇广播剧，节奏轻快，音乐段落占比高。漫播网页版评论区常被用来分享各自的夏日记忆。</p>
+          <div class="cc-foot"><span>全 10 集</span><strong>9.0 分</strong></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 最新更新 -->
+<section class="section" id="最新更新">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>最新更新 · 热播动态</h2>
+      <span class="section-note">截至 2026 年 11 月 7 日，漫播网页版近期内容更新与直播排期。</span>
+    </div>
+    <div class="update-list">
+      <div class="update-item"><span class="up-time">今天</span><div class="up-body"><h4>《雾港回声》番外篇上线</h4><p>补充主线之后的两段支线视角，漫播网页版可连续收听。</p></div></div>
+      <div class="update-item"><span class="up-time">今天</span><div class="up-body"><h4>《春山寄信》第 16 集更新</h4><p>感情线进入转折，配乐新增主题变奏。</p></div></div>
+      <div class="update-item"><span class="up-time">今天</span><div class="up-body"><h4>声优夜话·周五场预约开启</h4><p>本期聊悬疑题材配音，漫播网页版直播页可提前提问。</p></div></div>
+      <div class="update-item"><span class="up-time">昨天</span><div class="up-body"><h4>《北境契约录》第 34 集</h4><p>世界观补完章节，新增人物关系图入口。</p></div></div>
+      <div class="update-item"><span class="up-time">昨天</span><div class="up-body"><h4>《深夜电台 27 号》第 22 集</h4><p>单元故事收束，评论区讨论热度上升。</p></div></div>
+      <div class="update-item"><span class="up-time">2 天前</span><div class="up-body"><h4>古风精选专题更新</h4><p>漫播网页版编辑新增 4 部古风推荐与配乐解析。</p></div></div>
+      <div class="update-item"><span class="up-time">3 天前</span><div class="up-body"><h4>《旧唱片与夏日》番外预告</h4><p>短篇续作确认制作，上线时间待定。</p></div></div>
+      <div class="update-item"><span class="up-time">4 天前</span><div class="up-body"><h4>新剧《长夜有灯》上线</h4><p>都市悬疑新作，漫播网页版首周连更三集。</p></div></div>
+      <div class="update-item"><span class="up-time">5 天前</span><div class="up-body"><h4>社区话题「最难忘的一集」</h4><p>用户自发整理漫播网页版收听清单，参与人数破万。</p></div></div>
+      <div class="update-item"><span class="up-time">6 天前</span><div class="up-body"><h4>移动端收听页优化</h4><p>章节切换与倍速入口调整，漫播网页版体验更顺手。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 深度解析 -->
+<section class="section" id="深度解析">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>深度解析：漫播网页版为什么值得反复打开</h2>
+      <span class="section-note">从内容结构、收听节奏到社区氛围，拆解这个入口的实际使用价值。</span>
+    </div>
+    <div class="deep-grid">
+      <div class="deep-main">
+        <h3>一、内容类型与题材覆盖</h3>
+        <p>漫播网页版的内容以广播剧、声优互动直播和音频衍生节目为核心，题材覆盖悬疑推理、古风言情、现代都市、奇幻冒险与青春成长等多个方向。与单纯按分类罗列不同，这里更强调「按收听场景找内容」：通勤时间适合单元剧与短篇，睡前更适合节奏平缓的治愈系，而周末则适合一次听完整季的悬疑主线。对于第一次接触漫播网页版的用户来说，先从热门推荐入手，再根据标签筛选，会比盲目翻列表更高效。</p>
+        <p>从内容供给看，漫播网页版的更新节奏相对稳定，多数连载剧集保持周更，短篇则倾向一次性放出。页面的更新列表会把「今天」「昨天」等时间信息前置，让追更用户能快速判断哪些内容需要优先收听。</p>
+        <h3>二、声优与角色表现力</h3>
+        <p>广播剧的完成度很大程度取决于配音与声场设计。漫播网页版热门作品在这一点上普遍有较明确的风格：悬疑题材偏爱低频环境音与克制的对白，古风题材更依赖配乐与吟唱段落来建立氛围。声优的表演层次往往在角色关系转折时体现得最明显，比如《春山寄信》的中段，同一段对白在前后两集会出现语气上的细微差别，这类细节也是评论区反复讨论的焦点。</p>
+        <div class="quote">很多听众搜索「漫播网页版」时，真正想找的不只是一个播放入口，而是能快速判断「这部值不值得追」的信息：声优阵容、更新进度、口碑评价和收听顺序。</div>
+        <h3>三、节奏与消费体验</h3>
+        <p>漫播网页版的章节结构相对清晰，单集时长多在 20 到 35 分钟之间，适合碎片时间。对于多线叙事的奇幻题材，建议按章节顺序收听，并配合页面中的人物关系入口做辅助理解；对于单元剧结构，则可以从任意一集切入，不必担心连续性。倍速与章节切换的便利性，让二刷、三刷成为常见行为，这也是社区讨论能持续升温的原因之一。</p>
+        <h3>四、适合人群与搜索意图</h3>
+        <p>从搜索需求看，关注漫播网页版的用户大致分为三类：一是寻找在线收听入口的新用户，二是希望按类型筛选的深度听众，三是想参与直播与社区讨论的互动型用户。页面在首屏同时提供搜索、分类与热门入口，正是为了覆盖这三类意图。若你更看重口碑，可以先看用户评论与深度解析；若你只想快速开听，直接进入热门推荐更合适。</p>
+        <p>需要说明的是，漫播网页版的内容体验与设备、网络环境有关，移动端与桌面端的排版侧重不同，建议根据自己的收听习惯选择入口，并善用收藏与追更功能，避免错过更新。</p>
+      </div>
+      <aside class="side-card">
+        <h4>快速判断清单</h4>
+        <ul>
+          <li><span>悬疑推理</span><span>口碑 9.6</span></li>
+          <li><span>古风言情</span><span>口碑 9.4</span></li>
+          <li><span>现代都市</span><span>口碑 9.1</span></li>
+          <li><span>奇幻冒险</span><span>口碑 8.9</span></li>
+          <li><span>互动直播</span><span>每周更新</span></li>
+          <li><span>短篇单元</span><span>适合睡前</span></li>
+          <li><span>多线叙事</span><span>建议按序</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 体验指南 -->
+<section class="section" id="体验指南">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>漫播网页版体验指南</h2>
+      <span class="section-note">从打开页面到找到想听的内容，几个实用路径帮你少走弯路。</span>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="gi">①</div>
+        <h4>先看更新列表</h4>
+        <p>追更用户建议先浏览最新更新模块，按时间判断哪些内容已经上线，避免重复点开。</p>
+      </div>
+      <div class="guide-card">
+        <div class="gi">②</div>
+        <h4>用标签缩小范围</h4>
+        <p>热门推荐的标签覆盖题材、节奏与更新状态，先选两个标签组合，比逐页翻找更省时间。</p>
+      </div>
+      <div class="guide-card">
+        <div class="gi">③</div>
+        <h4>参考评论再决定</h4>
+        <p>评论区里常有关于声优表现与收听顺序的讨论，对判断是否适合自己很有参考价值。</p>
+      </div>
+      <div class="guide-card">
+        <div class="gi">④</div>
+        <h4>直播提前预约</h4>
+        <p>互动直播栏目支持预约提醒，想参与弹幕提问的用户可以提前在直播页留言。</p>
+      </div>
+      <div class="guide-card">
+        <div class="gi">⑤</div>
+        <h4>移动端阅读友好</h4>
+        <p>页面在手机端会收窄为单列卡片，章节与简介层级清晰，通勤时收听也方便。</p>
+      </div>
+      <div class="guide-card">
+        <div class="gi">⑥</div>
+        <h4>善用相关推荐</h4>
+        <p>听完一部后顺着推荐与资讯延伸浏览，往往能找到同类型但讨论度更低的口碑作品。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="常见问题">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>常见问题</h2>
+      <span class="section-note">围绕漫播网页版的收听、筛选与互动，整理高频疑问。</span>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">漫播网页版适合第一次接触广播剧的人吗？<span class="plus">+</span></button>
+        <div class="faq-a"><p>适合。页面把短篇与单元剧放在较显眼的位置，单集时长友好，剧情连续压力小。建议先从《旧唱片与夏日》这类十集左右的短篇入手，再过渡到长篇连载，收听节奏更容易适应。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">漫播网页版热门推荐是按什么排序的？<span class="plus">+</span></button>
+        <div class="faq-a"><p>推荐主要综合近期收听热度、社区讨论度与更新活跃度，并非固定榜单。题材之间会有交替，悬疑与古风通常占比较高，但不代表其他类型没有好内容，建议结合标签自行筛选。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">多线叙事的作品应该按什么顺序听？<span class="plus">+</span></button>
+        <div class="faq-a"><p>建议按章节顺序收听，尤其是奇幻与悬疑题材，时间线和人物关系会在后期收束。部分页面提供人物关系入口，遇到混淆时可以先查看，再回到对应章节，理解成本会低很多。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">互动直播需要提前准备什么？<span class="plus">+</span></button>
+        <div class="faq-a"><p>主要是提前预约并想好问题。直播侧重角色幕后与配音过程，弹幕提问建议简短具体。若时间冲突，后续通常会有回看或讨论帖，关注相关资讯即可。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">如何判断一部剧是否适合自己？<span class="plus">+</span></button>
+        <div class="faq-a"><p>可以看三个信号：单集时长是否符合你的碎片时间、标签是否覆盖你偏好的题材、评论区是否集中在剧情还是表演。若讨论多集中在声优表现，通常说明表演完成度较高。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">漫播网页版更新一般集中在什么时候？<span class="plus">+</span></button>
+        <div class="faq-a"><p>连载内容多在工作日与周末晚间更新，直播集中在周五晚间。页面最新更新模块会标注相对时间，追更用户可以在固定时段回访，减少反复刷新。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 用户评论 -->
+<section class="section" id="用户评论">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>用户评论 · 社区短评</h2>
+      <span class="section-note">来自近 30 天的真实语气讨论，涵盖推荐、吐槽与追更期待。</span>
+    </div>
+    <div class="comment-list">
+      <div class="comment"><div class="cm-head"><span class="cm-avatar">阿</span><span class="cm-name">阿澈</span><span class="cm-time">11月6日</span></div><p class="cm-text">《雾港回声》番外补得挺巧，把主线里没讲透的动机圆上了。漫播网页版连着听很顺，不用来回切。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a2">晚</span><span class="cm-name">晚风慢</span><span class="cm-time">11月5日</span></div><p class="cm-text">古风那部的配乐是真的加分，但中段剧情有点拖，我是倍速听完的。整体还是推荐，适合当背景音。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a3">一</span><span class="cm-name">一只九</span><span class="cm-time">11月4日</span></div><p class="cm-text">新人来报到，按指南从短篇开始听，确实比一上来就追长篇舒服。漫播网页版的标签筛选帮了大忙。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a4">木</span><span class="cm-name">木鱼不敲</span><span class="cm-time">11月3日</span></div><p class="cm-text">直播场次有点少，希望互动直播能多排几场。弹幕问答环节质量不错，比预想中认真。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar">南</span><span class="cm-name">南桥旧事</span><span class="cm-time">11月2日</span></div><p class="cm-text">悬疑线埋得深，第三遍重听才发现前面有伏笔。漫播网页版的章节导航做得清楚，二刷方便。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a2">不</span><span class="cm-name">不眠电台</span><span class="cm-time">11月1日</span></div><p class="cm-text">深夜电台那部适合睡前听，但有几集情绪太满，反而更清醒了。建议按单集简介挑着听。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a3">橘</span><span class="cm-name">橘子汽水</span><span class="cm-time">10月30日</span></div><p class="cm-text">声优表现稳定，尤其是配角，几个小角色都很有记忆点。就是更新速度慢了点，等得有点急。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a4">听</span><span class="cm-name">听风起</span><span class="cm-time">10月29日</span></div><p class="cm-text">北境的世界观挺大，前几集容易懵，看了评论区整理的时间线才顺过来，建议新人先看解析。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar">路</span><span class="cm-name">路过的小陈</span><span class="cm-time">10月27日</span></div><p class="cm-text">整体不错，但热门推荐里同题材重复有点多，希望分类能再细一点，比如把治愈和日常分开。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a2">半</span><span class="cm-name">半糖去冰</span><span class="cm-time">10月26日</span></div><p class="cm-text">短篇那部十集刚好，一个周末听完，结尾有点意犹未尽。漫播网页版要是有续作提醒就更好了。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a3">青</span><span class="cm-name">青柠不酸</span><span class="cm-time">10月24日</span></div><p class="cm-text">评论区氛围还可以，讨论剧情居多，很少吵架。这点比很多地方舒服，适合慢慢看。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a4">夜</span><span class="cm-name">夜航船</span><span class="cm-time">10月23日</span></div><p class="cm-text">希望漫播网页版能加个已听进度同步，换设备的时候要重新找集数，稍微有点麻烦。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar">星</span><span class="cm-name">星野拾光</span><span class="cm-time">10月21日</span></div><p class="cm-text">古风精选更新了，顺着推荐又挖到两部冷门，讨论度不高但完成度不错，算是意外收获。</p></div>
+      <div class="comment"><div class="cm-head"><span class="cm-avatar a2">慢</span><span class="cm-name">慢半拍</span><span class="cm-time">10月20日</span></div><p class="cm-text">直播回看如果能直接标出精彩片段就好了，整场听下来时间有点长，快进又怕错过重点。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 相关资讯 -->
+<section class="section" id="相关资讯">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>相关资讯</h2>
+      <span class="section-note">漫播网页版近期动态、内容更新与社区话题速览。</span>
+    </div>
+    <div class="news-grid">
+      <article class="news-card">
+        <span class="news-date">2026-11-07</span>
+        <h4>悬疑季专题上线，多部作品集中更新</h4>
+        <p>漫播网页版近期悬疑题材供给增加，专题页汇总口碑与收听顺序，适合按序补完。</p>
+      </article>
+      <article class="news-card">
+        <span class="news-date">2026-11-06</span>
+        <h4>《春山寄信》主题曲变奏版发布</h4>
+        <p>配乐团队公开中段变奏的创作思路，评论区讨论集中在情绪推进的处理方式。</p>
+      </article>
+      <article class="news-card">
+        <span class="news-date">2026-11-04</span>
+        <h4>互动直播排期调整，周五场固定化</h4>
+        <p>声优夜话改为每周五固定开播，漫播网页版直播页同步上线预约与提问入口。</p>
+      </article>
+      <article class="news-card">
+        <span class="news-date">2026-11-02</span>
+        <h4>社区话题「最难忘的一集」参与破万</h4>
+        <p>用户自发整理收听清单，短篇与单元剧被提及最多，形成一份可参考的口碑索引。</p>
+      </article>
+      <article class="news-card">
+        <span class="news-date">2026-10-30</span>
+        <h4>新剧《长夜有灯》首周连更三集</h4>
+        <p>都市悬疑新作上线，漫播网页版首周连更，适合想快速判断是否追更的听众。</p>
+      </article>
+      <article class="news-card">
+        <span class="news-date">2026-10-27</span>
+        <h4>移动端章节切换体验优化</h4>
+        <p>倍速与章节入口调整后更顺手，追更用户反馈切换成本降低，适合碎片时间收听。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h5>漫播网页版 · 内容发现站</h5>
+        <p>围绕漫播网页版的内容结构、收听路径与社区讨论整理专题信息，帮助用户更高效地找到适合的广播剧、互动直播与音频节目。</p>
+      </div>
+      <div>
+        <h5>热门栏目</h5>
+        <ul class="footer-links">
+          <li><a href="/#热门推荐">热门推荐</a></li>
+          <li><a href="/#最新更新">最新更新</a></li>
+          <li><a href="/#深度解析">深度解析</a></li>
+          <li><a href="/#体验指南">体验指南</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>帮助与互动</h5>
+        <ul class="footer-links">
+          <li><a href="/#常见问题">常见问题</a></li>
+          <li><a href="/#用户评论">用户评论</a></li>
+          <li><a href="/#相关资讯">相关资讯</a></li>
+          <li><a href="/#分类入口">分类入口</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>友情链接</h5>
+        <ul class="footer-links">
+          <li><a href="/#top">内容聚合入口</a></li>
+          <li><a href="/#热门推荐">悬疑专题</a></li>
+          <li><a href="/#热门推荐">古风精选</a></li>
+          <li><a href="/#最新更新">直播排期</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 漫播网页版内容专题站 · 本站为信息整理与内容推荐页面，具体内容以实际平台为准。</span>
+      <span>免责声明：页面中推荐与评论为模拟内容，仅供浏览参考。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ 手风琴
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(el){
+        el.classList.remove('open');
+        var q = el.querySelector('.faq-q');
+        if(q) q.setAttribute('aria-expanded','false');
+      });
+      if(!open){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+</script>
+
+</body>
+        </html>
